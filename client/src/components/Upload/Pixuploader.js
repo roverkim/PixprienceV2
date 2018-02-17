@@ -4,6 +4,7 @@ import FileBase64 from 'react-file-base64';
 import axios from "axios";
 import ImageUploader from 'react-images-upload';
 import Toggle from 'react-toggle';
+import "react-toggle/style.css"
 
 class Pixupload extends React.Component {
     constructor(props) {
@@ -24,7 +25,7 @@ class Pixupload extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleInputChangeNotes = this.handleInputChangeNotes.bind(this);
         this.handleInputChangeTitle = this.handleInputChangeTitle.bind(this);
-        this.handleInputChangeLocationn = this.handleInputChangeLocation.bind(this);
+        this.handleInputChangeLocation = this.handleInputChangeLocation.bind(this);
         //this.handleClick = this.handleClick.bind(this);
         this.handleFileUpload = this.handleFileUpload.bind(this);
 
@@ -133,15 +134,15 @@ class Pixupload extends React.Component {
 
         <br />
 
-       <label>
+       {/*<label>
              Share Photo?:
                <input
                 type="checkbox"
                 //onClick={this.toggle.bind(this)}
                     />
-         </label>
+         </label>*/}
 
-         <label>
+        {/* <label>
              <Toggle
                defaultChecked={this.state.soupIsReady}
                icons={{
@@ -150,13 +151,21 @@ class Pixupload extends React.Component {
                }}
                onChange={this.handleSoupChange} />
              <span>Custom icons</span>
-          </label>
+          </label> */}
 
+          <label>
+          Share Photo?:
+           <Toggle
+            checked={this.state.Toggle}
+            name='burritoIsReady'
+            value='yes'
+            onChange={this.handleToggleChange}/>
+            </label>
+              <br />
               <br />
         <button>
         SUBMIT UR PIC :)
         </button>
-
     </div>
     );
 }

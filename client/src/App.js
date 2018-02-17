@@ -4,7 +4,6 @@ import ReactDom from 'react-dom';
 import { Route, NavLink, Redirect, withRouter, Link, Switch, BrowserRouter as Router} from "react-router-dom";
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import createBrowserHistory from 'history/createBrowserHistory';
-
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
@@ -20,11 +19,11 @@ import Logout from './pages/Logout';
 /////////////////////////////////////////////// /* CSS */ //////////////////////////////////////////////////////////
 // import './App.css';
 import "./index.css";
+
 /////////////////////////////////////////////// /* Main */ //////////////////////////////////////////////////////////
 
 injectTapEventPlugin(); // remove tap delay, essential for MaterialUI to work properly
 const history = createBrowserHistory();
-
 
 class App extends Component {
 
@@ -40,7 +39,6 @@ class App extends Component {
                         } else {
                           // callback(null, HomePage);
                           return (<AuthenticationPage/>);
-
                           }
                         }}
                       />

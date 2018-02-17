@@ -17,7 +17,9 @@ class Timeline extends Component {
     this.state = {
       community_images: [],
       timeline_images: [],
-      secretData: ''
+      secretData: '',
+      carousel: false,
+      asyncImages: null
     }
     this.fetchCommunityImages = this.fetchCommunityImages.bind(this);
     this.fetchTimelineImages = this.fetchTimelineImages.bind(this);
@@ -29,6 +31,7 @@ class Timeline extends Component {
   }
 
   /////////////////////////////////////////////// /* Authentication */ //////////////////////////////////////////////////////////
+
   componentDidMount() {
   const xhr = new XMLHttpRequest();
   xhr.open('get', '/api/timeline');
@@ -46,10 +49,12 @@ class Timeline extends Component {
   });
   xhr.send();
 
-              console.log(window.localStorage.getItem('userEmail'));
+
+  console.log(window.localStorage.getItem('userEmail')); // Code to Get userEmail so that you can query the backed by email ID
+
 }
 
-/////////////////////////////////////////////// /* */ //////////////////////////////////////////////////////////
+/////////////////////////////////////////////// /* Fetching Images */ //////////////////////////////////////////////////////////
 
   fetchCommunityImages() { // Function to Fetch Community Images
 
@@ -65,21 +70,31 @@ class Timeline extends Component {
   }
 
   fetchTimelineImages() { // Function to Fetch Timeline Images
-    // console.log(`THIS: ${this}`)
+
+
+    let clientEmail = localStorage.getItem('userEmail');
+    // axios.get('/test/images', {params: { email: clientEmail }})
     axios.get('/test/images')
         .then( response => {
-          console.log(response)
+          // console.log(response)
           this.setState({
             timeline_images: response.data
           });
 
-          console.log(this.state.timeline_images)
+          this.setState({
+            asyncImages: this.state.timeline_images.map(base64_image => base64_image.image) // Replace AysncImages Null with an Array of Images taken from
+          })
+
+          // console.log(this.state.timeline_images)
+
 
         })
         .catch(function (error) {
           console.log(error);
         });
   }
+
+  /////////////////////////////////////////////// /* Render */ //////////////////////////////////////////////////////////
 
   render() {
     return (
@@ -104,13 +119,11 @@ class Timeline extends Component {
         <div className="container">
           <br/><br/>
           <h1 className="header center blue-grey-text">Welcome to your timeline</h1>
-          { this.state.timeline_images.map((base64_image) => <a className="carousel-item"> <img src={base64_image.image} style={{width: 304, height: 228}}  alt="Image" /> </a>)}
+
         </div>
       </div>
-
-    <div className="carousel" id="imageCarousel">
-
-    </div>
+      {/* Condition for Rendering Async Carousel Images  */}
+     {this.state.asyncImages? (<Carousel images={this.state.asyncImages}/>) : (<div> Carousel is Loading </div>)}
 
     </div>
     );
