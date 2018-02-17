@@ -2,7 +2,7 @@ import React from 'react';
 //import ImageUploader from 'react-images-upload';
 import FileBase64 from 'react-file-base64';
 import axios from "axios";
-import ImageUploader from 'react-images-upload';
+// import ImageUploader from 'react-images-upload';
 import Toggle from 'react-toggle';
 import "react-toggle/style.css"
 
