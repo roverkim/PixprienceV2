@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from 'react-dom';
 import PropTypes from "prop-types";
-
+import Marker from "./Marker"
 
 class Map extends React.Component{
 
@@ -24,6 +24,7 @@ class Map extends React.Component{
         }
     }
     
+    // function that initializes the map
     loadMap(){
         if(this.props && this.props.google){
             const {google} = this.props;
