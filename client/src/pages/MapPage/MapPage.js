@@ -2,6 +2,7 @@
 import React, {Component} from 'react';
 import ReactDom from 'react-dom';
 import MapContainer from '../../components/TimelineMap/MapContainer';
+import Nav from '../../components/NavBar';
 
 
 /////////////////////////////////////////////// /* Main */ //////////////////////////////////////////////////
@@ -19,7 +20,7 @@ export default class MapPage extends Component {
   render(){
     return(
       <div>
-        <div>Map Page</div>
+        <Nav/>
         <MapContainer />
       </div>
     );

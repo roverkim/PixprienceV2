@@ -39,14 +39,24 @@ class App extends Component {
                           return (<TimelinePage/>);
                         } else {
                           // callback(null, HomePage);
+                          return (<AuthenticationPage active="render"/>);
+                          }
+                        }}
+                      />
+                      {/* <Route exact path="/authenticationpage" component={AuthenticationPage}/> */}
+                      <Route path="/about" component={AboutPage}/>
+                      <Route path="/community" component={CommunityPage}/>
+                      {/* <Route path="/timeline" component={Timeline}/> */}
+                      <Route exact path="/timeline" component={(location, callback)=> {
+                        if (Auth.isUserAuthenticated()) {
+                          // callback(null, DashboardPage);
+                          return (<TimelinePage/>);
+                        } else {
+                          // callback(null, HomePage);
                           return (<AuthenticationPage/>);
                           }
                         }}
                       />
-                      <Route exact path="/authenticationpage" component={AuthenticationPage}/>
-                      <Route path="/about" component={AboutPage}/>
-                      <Route path="/community" component={CommunityPage}/>
-                      {/* <Route path="/timeline" component={Timeline}/> */}
                       <Route exact path="/mappage" component={(location, callback)=> {
                         if (Auth.isUserAuthenticated()) {
                           // callback(null, DashboardPage);

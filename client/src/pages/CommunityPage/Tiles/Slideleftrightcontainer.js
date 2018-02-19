@@ -1,8 +1,9 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 
-export default class Slideupcontainer extends Component {
+export default class Slideleftrightcontainer extends Component {
   render() {
     return (
+      <Fragment>
       <div className="tile fg-white" data-role="tile" data-effect="slideUp">
         <div className="tile-content">
           <div className="live-slide" style={{
@@ -107,6 +108,8 @@ export default class Slideupcontainer extends Component {
         </div>
         <div className="tile-label">{this.props.title}</div>
       </div>
+      </Fragment>
+
     );
   }
-}
+};

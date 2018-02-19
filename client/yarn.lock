@@ -5307,9 +5307,9 @@ react-flip-move@^2.9.14:
   version "2.10.2"
   resolved "https://registry.yarnpkg.com/react-flip-move/-/react-flip-move-2.10.2.tgz#efd70dafb11594deac1827d9cf26ea2e773810d6"
 
-react-images-upload@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/react-images-upload/-/react-images-upload-1.1.1.tgz#fd7ace49df43b414326cfc0ff7535665226a71f5"
+react-images-upload@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/react-images-upload/-/react-images-upload-1.0.3.tgz#3feec79e6cbaea7451aa1c1ac0dd42145afa940d"
   dependencies:
     react "^15.6.1"
     react-flip-move "^2.9.14"
@@ -5394,6 +5394,12 @@ react-tap-event-plugin@^3.0.2:
   resolved "https://registry.yarnpkg.com/react-tap-event-plugin/-/react-tap-event-plugin-3.0.2.tgz#280371677b881c31376e0027a0b86d2c6de039ee"
   dependencies:
     fbjs "^0.8.6"
+
+react-toggle@^4.0.2:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/react-toggle/-/react-toggle-4.0.2.tgz#77f487860efb87fafd197672a2db8c885be1440f"
+  dependencies:
+    classnames "^2.2.5"
 
 react-transition-group@^1.2.1:
   version "1.2.1"
