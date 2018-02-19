@@ -16,6 +16,7 @@
     "react-file-base64": "^1.0.3",
     "react-images-upload": "^1.0.3",
     "react-materialize": "^1.1.2",
+    "react-particles-js": "^2.1.0",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.0",
     "react-tap-event-plugin": "^3.0.2",
