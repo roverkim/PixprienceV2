@@ -69,13 +69,8 @@ class Timeline extends Component {
 
 
     let clientEmail = localStorage.getItem('userEmail');
-<<<<<<< HEAD
-    // axios.get('/test/images', {params: { email: clientEmail }})
-    axios.get('/test/images')
-=======
     axios.post('/test/images', {params: { email: clientEmail }})
     // axios.get('/test/images')
->>>>>>> upstream/master
         .then( response => {
           // console.log(response)
           this.setState({
@@ -83,7 +78,7 @@ class Timeline extends Component {
           });
 
           this.setState({
-            asyncImages: this.state.timeline_images.map(base64_image => base64_image.image) // Replace AysncImages Null with an Array of Images taken from
+            asyncImages: this.state.timeline_images.map(base64_image => {base64_image.image}) // Replace AysncImages Null with an Array of Images taken from
           }, () => console.log("Fetched Images = " + this.state.timeline_images))
 
           // console.log(this.state.timeline_images)
