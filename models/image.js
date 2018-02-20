@@ -29,11 +29,6 @@ const imageSchema = new Schema({
         type: String,
         trim: true
     },
-    // location:{
-    //     type: String,
-    //     trim: true,
-    //     default: "339 E Chicago Ave, Chicago, IL 60611"
-    // },
     share: {
         type: Boolean,
         default: true
