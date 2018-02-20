@@ -21,12 +21,13 @@ const imageSchema = new Schema({
         type: Date,
         default: Date.now
     },
-    location: {
+    latitude: {
         type: String,
         trim: true
     },
-    rating: {
-        type: Number
+    longitude: {
+        type: String,
+        trim: true
     },
     share: {
         type: Boolean,
