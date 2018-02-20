@@ -1,22 +1,25 @@
 import React from 'react';
-//import ImageUploader from 'react-images-upload';
 import FileBase64 from 'react-file-base64';
 import axios from "axios";
-// import ImageUploader from 'react-images-upload';
+//import ImageUploader from 'react-images-upload';
 import Toggle from 'react-toggle';
 import "react-toggle/style.css"
 import StarRatings from 'react-star-ratings';
 
 
-class Pixupload extends React.Component {
+export default class Pixupload extends React.Component {
     constructor(props) {
         super(props);
+        this.clientEmail = localStorage.getItem("userEmail");
+          console.log(this.clientEmail);
         this.state={
             img: [],
             notes: "",
             location: "",
-            rating: 2,
-            //checkbox: true,
+            rating: 4,
+            share: true,
+            userEmail: this.clientEmail,
+            imagePreviewUrl: null,
             title: ""
         };
 
@@ -25,11 +28,10 @@ class Pixupload extends React.Component {
         this.handleInputChangeNotes = this.handleInputChangeNotes.bind(this);
         this.handleInputChangeTitle = this.handleInputChangeTitle.bind(this);
         this.handleInputChangeLocation = this.handleInputChangeLocation.bind(this);
-        //this.handleClick = this.handleClick.bind(this);
         this.handleFileUpload = this.handleFileUpload.bind(this);
         this.changeRating = this.changeRating.bind(this);
     }
-    
+
     //FUNCTION FOR WHAT HAPPENS WHEN SUBMIT BUTTON IS CLICKED AKA COLLECTING AND SENDING FILE
     handleSubmit(event) {
         event.preventDefault();
@@ -39,6 +41,7 @@ class Pixupload extends React.Component {
             title: this.state.title,
             location: this.state.location,
             rating: this.state.rating,
+            userEmail: this.clientEmail,
             //checkbox: this.state.checkbox,
             notes: this.state.notes
         }
@@ -92,6 +95,14 @@ class Pixupload extends React.Component {
 
 //CREATION OF THE FORM UI
     render() {
+      {
+        let {imagePreviewUrl} = this.state;
+        let $imagePreview = null;
+        if (imagePreviewUrl) {
+            $imagePreview = (<img src={this.state.imagePreviewUrl} />);
+        }
+
+
         console.log(this.state);
         return (
             <div>
@@ -101,6 +112,7 @@ class Pixupload extends React.Component {
         onDone={ this.handleFileUpload.bind(this)}
     />
     <br />
+                <img src={imagePreviewUrl} />
         <label>
             Title:
               <input
@@ -129,7 +141,7 @@ class Pixupload extends React.Component {
          </label>
          <br />
          <label>
-           Location:
+           Location
              <input
                  name="location"
                  type="text"
@@ -142,8 +154,6 @@ class Pixupload extends React.Component {
 
         <br />
          <label>
-
-
        <StarRatings
          rating={this.state.rating}
          starRatedColor="magenta"
@@ -157,7 +167,7 @@ class Pixupload extends React.Component {
 
 <br />
           <label>
-          Share?:
+          Share?
            <Toggle
             checked={this.state.Toggle}
             name='burritoIsReady'
@@ -166,12 +176,12 @@ class Pixupload extends React.Component {
             </label>
               <br />
               <br />
-        <button>
-        SUBMIT UR PIC :)
+        <button onClick={this.handleSubmit}>
+        SUBMIT UR PIC
         </button>
     </div>
-    );
-}
-}
 
-export default Pixupload
+  )
+  }
+}
+}
