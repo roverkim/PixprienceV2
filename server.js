@@ -63,12 +63,11 @@ app.post("/test/upload", function(req, res) {
   console.log("BODY", req.body);
   console.log(req.body.title);
   console.log(req.body.notes);
+  console.log(req.body.location);
+
+  db.Image.create({image: req.body.base64, title: req.body.title, notes: req.body.notes, userEmail: req.body.userEmail, location: req.body.location}).then(function(dbImage) {
+
   console.log(req.body.userEmail);
-
-
-  var testImage = {image: req.body.base64, title: req.body.title, notes: req.body.notes, userEmail: req.body.userEmail}
-  console.log(testImage);
-  db.Image.create({image: req.body.base64, title: req.body.title, notes: req.body.notes, userEmail: req.body.userEmail}).then(function(dbImage) {
     console.log(dbImage);
     console.log("image databse hit")
   }).catch(function(err) {
