@@ -5,6 +5,8 @@ import axios from "axios";
 // import ImageUploader from 'react-images-upload';
 import Toggle from 'react-toggle';
 import "react-toggle/style.css"
+import StarRatings from 'react-star-ratings';
+
 
 class Pixupload extends React.Component {
     constructor(props) {
@@ -13,14 +15,11 @@ class Pixupload extends React.Component {
             img: [],
             notes: "",
             location: "",
+            rating: 2,
             //checkbox: true,
             title: ""
         };
 
-        //CALLBACK USED WHEN CHANGING PHOTO FILE TO BASE 64
-        // getFiles(files){
-        //   this.setState({ files: files })
-        // }
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleInputChangeNotes = this.handleInputChangeNotes.bind(this);
@@ -28,8 +27,9 @@ class Pixupload extends React.Component {
         this.handleInputChangeLocation = this.handleInputChangeLocation.bind(this);
         //this.handleClick = this.handleClick.bind(this);
         this.handleFileUpload = this.handleFileUpload.bind(this);
-
+        this.changeRating = this.changeRating.bind(this);
     }
+    
     //FUNCTION FOR WHAT HAPPENS WHEN SUBMIT BUTTON IS CLICKED AKA COLLECTING AND SENDING FILE
     handleSubmit(event) {
         event.preventDefault();
@@ -38,11 +38,12 @@ class Pixupload extends React.Component {
             base64: this.state.img[0].base64,
             title: this.state.title,
             location: this.state.location,
+            rating: this.state.rating,
             //checkbox: this.state.checkbox,
             notes: this.state.notes
-
-
         }
+
+
 
 {/* }  handleClick() {
            this.setState(prevState => ({
@@ -82,6 +83,13 @@ class Pixupload extends React.Component {
         });
     }
 
+    changeRating(newRating) {
+      console.log('handle star click');
+      this.setState({
+        rating: newRating
+      });
+    }
+
 //CREATION OF THE FORM UI
     render() {
         console.log(this.state);
@@ -119,7 +127,7 @@ class Pixupload extends React.Component {
             }}
             onChange={this.handleInputChangeNotes} />
          </label>
-
+         <br />
          <label>
            Location:
              <input
@@ -133,28 +141,23 @@ class Pixupload extends React.Component {
           </label>
 
         <br />
+         <label>
 
-       {/*<label>
-             Share Photo?:
-               <input
-                type="checkbox"
-                //onClick={this.toggle.bind(this)}
-                    />
-         </label>*/}
 
-        {/* <label>
-             <Toggle
-               defaultChecked={this.state.soupIsReady}
-               icons={{
-                 checked: <Heart />,
-                 unchecked: null,
-               }}
-               onChange={this.handleSoupChange} />
-             <span>Custom icons</span>
-          </label> */}
+       <StarRatings
+         rating={this.state.rating}
+         starRatedColor="magenta"
+         onChange={this.changeRating}
+         numberOfStars={6}
+       />
+          </label>
 
+
+<br />
+
+<br />
           <label>
-          Share Photo?:
+          Share?:
            <Toggle
             checked={this.state.Toggle}
             name='burritoIsReady'

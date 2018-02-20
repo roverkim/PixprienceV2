@@ -63,8 +63,9 @@ app.post("/test/upload", function(req, res) {
   console.log(req.body)
   console.log(req.body.title);
   console.log(req.body.notes);
+  console.log(req.body.location);
 
-  db.Image.create({image: req.body.base64, title: req.body.title, notes: req.body.notes}).then(function(dbImage) {
+  db.Image.create({image: req.body.base64, title: req.body.title, notes: req.body.notes, location: req.body.location}).then(function(dbImage) {
     console.log(dbImage);
   }).catch(function(err) {
     console.log(err.message);
