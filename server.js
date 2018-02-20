@@ -73,33 +73,14 @@ app.post("/test/upload", function(req, res) {
     console.log("image databse hit")
   }).catch(function(err) {
     console.log(err.message);
-    console.log("there is an error")
+    console.log("there is an error");
   })
 });
-// Delete After Paige Adds Email To IMage Field
-app.get("/test/images", function(req, res) {
-  console.log("images path hit.")
-  console.log(req.query.email);
-  db.Image.find({}, function(err, found) {
-    console.log(found)
-    // console.log("images of user with "+ email +" found.")
-    // Log any errors if the server encounters one
-    if (err) {
-      console.log(err);
-    }
-    // Otherwise, send the result of this query to the browser
-    else {
-      res.json(found);
-    }
-  });
-});
-
-
-// Uncomment After Paige Adds Email
+// // Delete After Paige Adds Email To IMage Field
 // app.get("/test/images", function(req, res) {
 //   console.log("images path hit.")
 //   console.log(req.query.email);
-//   db.Image.find({ 'email': req.query.email }, function(err, found) {
+//   db.Image.find({}, function(err, found) {
 //     console.log(found)
 //     // console.log("images of user with "+ email +" found.")
 //     // Log any errors if the server encounters one
@@ -112,6 +93,25 @@ app.get("/test/images", function(req, res) {
 //     }
 //   });
 // });
+
+app.get("/test/images", function(req, res) {
+    console.log("images path hit.");
+    console.log(req.query.email);
+    console.log(req.params.email);
+    db.Image.find({'email': req.params.email}).sort({"_id": -1}).then( function (err, found) {
+        console.log(found)
+        // console.log("images of user with "+ email +" found.")
+        // Log any errors if the server encounters one
+        if (err) {
+            console.log(err);
+        }
+        // Otherwise, send the result of this query to the browser
+        else {
+            res.json(found);
+        }
+    });
+});
+
 
 // db.images.create({ title: 'test2000'})
 // .then(function(dbimages){
