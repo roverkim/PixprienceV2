@@ -3,10 +3,10 @@ import ReactDOM from "react-dom";
 import {Carousel} from "react-materialize"
 import Pixupload from "../../components/Upload/Pixuploader"
 import UploadModal from "../../components/UploadModal/UploadModal"
-import API from '../../utils/API.js'
-import TimelineImage from  '../../components/TimelineImage'
-import Auth from '../../modules/Auth';
-import NavLogin from '../../components/NavBar';
+import API from "../../utils/API.js"
+import TimelineImage from  "../../components/TimelineImage"
+import Auth from "../../modules/Auth";
+import NavLogin from "../../components/NavBar";
 import axios from "axios";
 
 class Timeline extends Component {
@@ -69,8 +69,8 @@ class Timeline extends Component {
 
 
     let clientEmail = localStorage.getItem('userEmail');
-    // axios.get('/test/images', {params: { email: clientEmail }})
-    axios.get('/test/images')
+    axios.get('/test/images', {params: { email: clientEmail }})
+    // axios.get('/test/images')
         .then( response => {
           // console.log(response)
           this.setState({

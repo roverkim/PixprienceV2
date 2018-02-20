@@ -138,7 +138,7 @@ class Pixupload extends React.Component {
                           <br />
                           <br />
                 </label>
-                <button>
+                <button onClick={this.handleSubmit}>
                     SUBMIT UR PIC :)
                 </button>
             </div>

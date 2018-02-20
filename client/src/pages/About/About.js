@@ -22,7 +22,7 @@ class About extends React.Component {
     return (
       <Fragment>
         <Nav/>
-        <Particles style={{position:"fixed"}}
+        <Particles style={{position:"absolute", height: "100vh !important"}}
            params={{
             "particles" : {
               "number": {
