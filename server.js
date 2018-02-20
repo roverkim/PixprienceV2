@@ -59,21 +59,21 @@ app.use(cors());
 const db = require("./models"); // Sequelize Models
 // images Upload Route
 app.post("/test/upload", function(req, res) {
-  console.log("Submit imagess Path hit");
-  console.log("BODY", req.body);
-  console.log(req.body.title);
-  console.log(req.body.notes);
-  console.log(req.body.userEmail);
+  // console.log("Submit imagess Path hit");
+  // console.log("BODY", req.body);
+  // console.log(req.body.title);
+  // console.log(req.body.notes);
+  // console.log(req.body.userEmail);
 
 
   var testImage = {image: req.body.base64, title: req.body.title, notes: req.body.notes, userEmail: req.body.userEmail}
-  console.log(testImage);
+  // console.log(testImage);
   db.Image.create({image: req.body.base64, title: req.body.title, notes: req.body.notes, userEmail: req.body.userEmail}).then(function(dbImage) {
-    console.log(dbImage);
-    console.log("image databse hit")
+    // console.log(dbImage);
+    // console.log("image databse hit")
   }).catch(function(err) {
-    console.log(err.message);
-    console.log("there is an error");
+    // console.log(err.message);
+    // console.log("there is an error");
   })
 });
 // // Delete After Paige Adds Email To IMage Field
@@ -94,32 +94,15 @@ app.post("/test/upload", function(req, res) {
 //   });
 // });
 
-app.get("/test/images", function(req, res) {
+app.post("/test/images", function(req, res) {
     console.log("images path hit.");
-    console.log(req.query.email);
-    console.log(req.params.email);
-    db.Image.find({'email': req.params.email}).sort({"_id": -1}).then( function (err, found) {
-        console.log(found)
-        // console.log("images of user with "+ email +" found.")
-        // Log any errors if the server encounters one
-        if (err) {
-            console.log(err);
-        }
-        // Otherwise, send the result of this query to the browser
-        else {
-            res.json(found);
-        }
+    // console.log(req.body);
+    db.Image.find({'userEmail' : req.body.params.email}).sort({_id: -1}).then((found, err) => {
+      err ? res.send("Images Not Found") : res.json(found);
     });
 });
 
 
-// db.images.create({ title: 'test2000'})
-// .then(function(dbimages){
-//     console.log(dbimages);
-// })
-// .catch(function(err){
-//     console.log(err.message);
-// })
 
 
 /////////////////////////////////////////////// /* Start Server */ ////////////////////////////////////////////////////////
