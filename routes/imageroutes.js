@@ -9,7 +9,7 @@ const router = new Router();
 
 
 router.post('api/create/image', function(req, res){
-    console.log('CHANGO')
+    // console.log('CHANGO')
     Image.insert(
         {
             title: req.body.title,
@@ -20,7 +20,7 @@ router.post('api/create/image', function(req, res){
             if (err) {
                 res.send(err);
             } else {
-                console.log(response);
+                // console.log(response);
                 console.log('image created!');
                 // res.redirect('/profile');
             }
