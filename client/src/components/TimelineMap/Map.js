@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from 'react-dom';
 import PropTypes from "prop-types";
-
+// import Marker from "./Marker"
 
 class Map extends React.Component{
 
@@ -19,11 +19,13 @@ class Map extends React.Component{
 
 
     componentDidUpdate(prevProps, prevState){
-        if(prevProps.google !== this.props.google){
-            this.loadMap();
-        }
+        // if(prevProps.google !== this.props.google){
+        //     this.loadMap();
+        // }
+        this.loadMap();
     }
     
+    // function that initializes the map
     loadMap(){
         if(this.props && this.props.google){
             const {google} = this.props;
@@ -40,6 +42,24 @@ class Map extends React.Component{
                 zoom: zoom
             })
             this.map = new maps.Map(node, mapConfig);
+
+            // passing the props from the image data we were able to get from the api call in map container
+            this.props.imageData.map( (data) => {
+                console.log("placing marker on map")
+                const marker = new google.maps.Marker({
+                    position: this.state.currentLocation,
+                    map: this.map,
+                    // title: data.props.title
+                    // icon: data.image
+                });
+                
+
+                // const infowindow = new google.maps.InfoWindow({
+                //     content:`<h4><strong>Title: ${data.title}</strong></h4>
+                //     <h5><strong>Date Added: </strong>${data.dateAdded}</h5>
+                //     <h5><strong>Notes: </strong>${data.notes}</h5>`
+                // });
+            });
         }
     }
 //
