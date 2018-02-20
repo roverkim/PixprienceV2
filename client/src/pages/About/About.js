@@ -109,7 +109,7 @@ class About extends React.Component {
                   <h6 class="section-subheading">The behind your Pixperience experience</h6>
                 </Col>
               </Row>
-              <Carousel className="carousel" id="teamCarousel">
+              <Carousel>
                 {this.state.teamMember.map(teamMember => (<Team id={teamMember.id} name={teamMember.name} image={teamMember.image} role={teamMember.role}/>))}
               </Carousel>
             </div>
