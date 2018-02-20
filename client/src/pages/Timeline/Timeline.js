@@ -69,8 +69,8 @@ class Timeline extends Component {
 
 
     let clientEmail = localStorage.getItem('userEmail');
-    axios.get('/test/images', {params: { email: clientEmail }})
-    // axios.get('/test/images')
+    // axios.get('/test/images', {params: { email: clientEmail }})
+    axios.get('/test/images')
         .then( response => {
           // console.log(response)
           this.setState({

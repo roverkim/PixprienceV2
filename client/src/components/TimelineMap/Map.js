@@ -49,7 +49,7 @@ class Map extends React.Component{
                 const marker = new google.maps.Marker({
                     position: this.state.currentLocation,
                     map: this.map,
-                    // title: data.properties.title
+                    // title: data.props.title
                     // icon: data.image
                 });
                 
