@@ -48,7 +48,7 @@ class Timeline extends Component {
   });
   xhr.send();
 
-  console.log(window.localStorage.getItem('userEmail')); // Code to Get userEmail so that you can query the backed by email ID
+  // console.log(window.localStorage.getItem('userEmail')); // Code to Get userEmail so that you can query the backed by email ID
 }
 /////////////////////////////////////////////// /* Fetching Images */ //////////////////////////////////////////////////////////
 
@@ -62,15 +62,20 @@ class Timeline extends Component {
 
     this.setState(prevState => ({
       community_images: [...prevState.community_images].concat(fetchedimages)
-    }), () => console.log(this.state))
+    }))
   }
 
   fetchTimelineImages() { // Function to Fetch Timeline Images
 
 
     let clientEmail = localStorage.getItem('userEmail');
+<<<<<<< HEAD
     // axios.get('/test/images', {params: { email: clientEmail }})
     axios.get('/test/images')
+=======
+    axios.post('/test/images', {params: { email: clientEmail }})
+    // axios.get('/test/images')
+>>>>>>> upstream/master
         .then( response => {
           // console.log(response)
           this.setState({
@@ -79,7 +84,7 @@ class Timeline extends Component {
 
           this.setState({
             asyncImages: this.state.timeline_images.map(base64_image => base64_image.image) // Replace AysncImages Null with an Array of Images taken from
-          })
+          }, () => console.log("Fetched Images = " + this.state.timeline_images))
 
           // console.log(this.state.timeline_images)
 

@@ -9,7 +9,7 @@ class Pixupload extends React.Component {
     constructor(props) {
         super(props);
         this.clientEmail = localStorage.getItem("userEmail");
-        console.log(this.clientEmail);
+        // console.log(this.clientEmail);
 
         this.state={
             img: [],
@@ -79,7 +79,7 @@ class Pixupload extends React.Component {
             $imagePreview = (<img src={this.state.imagePreviewUrl} />);
         }
 
-        console.log(this.state);
+        // console.log(this.state);
         return (
             <div>
                 <FileBase64
@@ -97,7 +97,7 @@ class Pixupload extends React.Component {
                         type="text"
                         ref={input => {
                             this.textInput = input;
-                            console.log(input);
+                            // console.log(input);
                             ;
                         }}
                         onChange={this.handleInputChangeTitle} />
