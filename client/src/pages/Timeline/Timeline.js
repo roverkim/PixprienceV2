@@ -80,8 +80,8 @@ class Timeline extends Component {
 
           this.setState({
               asyncImages: this.state.timeline_images.map(base64_image => {return {'image': base64_image.image, 'title' : base64_image.title, 'dateAdded' : base64_image.dateAdded}}) // Replace AysncImages Null with an Array of Images taken from
-           }, ()=>this.setState({ asyncCarousel: this.state.asyncImages.map(data => <TimelineImage image={data.image} title={data.title} dateAdded={data.dateAdded}/>)})); 
-          // () => 
+           }, ()=>this.setState({ asyncCarousel: this.state.asyncImages.map(data => <TimelineImage image={data.image} title={data.title} dateAdded={data.dateAdded}/>)}));
+          // () =>
           //(<TimelineImage image={data.image} title={data.title} date={data.date}/>
           //
         })
@@ -95,18 +95,59 @@ class Timeline extends Component {
   render() {
     return (
 
-      <div>
+    <div>
       <NavLogin active={this.props.active}/>
       <div className="section no-pad-bot" id="index-banner">
-        <div className="container">
+        <div className="container" style={{"text-align": "center"}}>
           <br/><br/>
           <h1 className="header center blue-grey-text">Welcome to your timeline</h1>
+          <br/><br/>
+          {this.state.asyncCarousel ? <Carousel>{this.state.asyncCarousel}</Carousel> : (
+            <div class="preloader-wrapper big active" style={{background: "none"}}>
+              <div class="spinner-layer spinner-blue">
+                <div class="circle-clipper left">
+                  <div class="circle"></div>
+                </div><div class="gap-patch">
+                  <div class="circle"></div>
+                </div><div class="circle-clipper right">
+                  <div class="circle"></div>
+                </div>
+              </div>
+
+              <div class="spinner-layer spinner-red">
+                <div class="circle-clipper left">
+                  <div class="circle"></div>
+                </div><div class="gap-patch">
+                  <div class="circle"></div>
+                </div><div class="circle-clipper right">
+                  <div class="circle"></div>
+                </div>
+              </div>
+
+              <div class="spinner-layer spinner-yellow">
+                <div class="circle-clipper left">
+                  <div class="circle"></div>
+                </div><div class="gap-patch">
+                  <div class="circle"></div>
+                </div><div class="circle-clipper right">
+                  <div class="circle"></div>
+                </div>
+              </div>
+
+              <div class="spinner-layer spinner-green">
+                <div class="circle-clipper left">
+                  <div class="circle"></div>
+                </div><div class="gap-patch">
+                  <div class="circle"></div>
+                </div><div class="circle-clipper right">
+                  <div class="circle"></div>
+                </div>
+              </div>
+            </div>
+          )}
 
         </div>
       </div>
-     
-    {this.state.asyncCarousel ? <Carousel>{this.state.asyncCarousel}</Carousel> : console.log("WE ONLY MARGINALLY SUCK")}
-
     </div>
     );
   }
