@@ -24,13 +24,13 @@ class MapContainer extends React.Component{
 
 
         let clientEmail = localStorage.getItem('userEmail');
-        axios.get('/test/images')
-        // axios.get('/test/images', {params: { email: clientEmail }})
+        axios.post('/test/images', {params: { email: clientEmail }})
+        // axios.get('/test/images')
             .then( response => {
-              console.log("Kiwon TEST: ", response)
-              this.setState({
-                    imageData: response.data
-                });
+            // console.log(response)
+            this.setState({
+                imageData: response.data
+            });
               
     
             //   this.setState({
