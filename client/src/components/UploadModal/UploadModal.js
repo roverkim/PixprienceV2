@@ -15,7 +15,7 @@ class UploadModal extends React.Component{
     // }
 
 
-    //for handling image preview when an image is uploaded for submit    
+    //for handling image preview when an image is uploaded for submit
     // setImagePreview(imageFile){
     //     console.log("hiiiiiiiiiiiiiiiiiiiiii")
 
@@ -31,9 +31,9 @@ class UploadModal extends React.Component{
     render(){
         return(
             //Modal to upload
-            <Modal id="imageUploadModal" trigger={<Button id="uploadBtn" href="#imageUploadModal"><i className="material-icons large cloud">cloud_upload</i></Button>}>
+            <Modal id="imageUploadModal" trigger={<Button style={{height: "100%" }} id="uploadBtn" href="#imageUploadModal"><i className="material-icons file_upload">file_upload</i></Button>}>
                 <div className="container">
-  
+
                         {/* Row for image preview */}
                         {/* <Row>
                             <Col s={3}></Col>
@@ -50,7 +50,7 @@ class UploadModal extends React.Component{
                         </Row> */}
 
                         <Pixuploader />
-                        
+
                         {/* <Row>
                             <Col s={12} className="center-align">
                                 {/* Form to input title */}

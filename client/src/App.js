@@ -9,11 +9,12 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 //////////////////////////////////////////////// /* Components */ //////////////////////////////////////////////////////////
 import Auth from './modules/Auth';
-import About from './pages/About';
+import AboutPage from './pages/About';
 import AuthenticationPage from './pages/AuthenticationPage';
-import Community from './pages/CommunityPage';
-import Timeline from './pages/Timeline';
+import CommunityPage from './pages/CommunityPage';
+import TimelinePage from './pages/Timeline';
 import Logout from './pages/Logout';
+import MapPage from './pages/MapPage'
 
 
 /////////////////////////////////////////////// /* CSS */ //////////////////////////////////////////////////////////
@@ -35,17 +36,37 @@ class App extends Component {
                       <Route exact path="/" component={(location, callback)=> {
                         if (Auth.isUserAuthenticated()) {
                           // callback(null, DashboardPage);
-                          return (<Timeline/>);
+                          return (<TimelinePage/>);
+                        } else {
+                          // callback(null, HomePage);
+                          return (<AuthenticationPage active="render"/>);
+                          }
+                        }}
+                      />
+                      {/* <Route exact path="/authenticationpage" component={AuthenticationPage}/> */}
+                      <Route path="/about" component={AboutPage}/>
+                      <Route path="/community" component={CommunityPage}/>
+                      {/* <Route path="/timeline" component={Timeline}/> */}
+                      <Route exact path="/timeline" component={(location, callback)=> {
+                        if (Auth.isUserAuthenticated()) {
+                          // callback(null, DashboardPage);
+                          return (<TimelinePage/>);
                         } else {
                           // callback(null, HomePage);
                           return (<AuthenticationPage/>);
                           }
                         }}
                       />
-                      <Route exact path="/authenticationpage" component={AuthenticationPage}/>
-                      <Route path="/about" component={About}/>
-                      <Route path="/community" component={Community}/>
-                      <Route path="/timeline" component={Timeline}/>
+                      <Route exact path="/mappage" component={(location, callback)=> {
+                        if (Auth.isUserAuthenticated()) {
+                          // callback(null, DashboardPage);
+                          return (<MapPage/>);
+                        } else {
+                          // callback(null, HomePage);
+                          return (<AuthenticationPage/>);
+                          }
+                        }}
+                      />
                       <Route path="/logout" component={Logout}/> {/*Change the current URL to */}
                     </switch>
                 </Router>

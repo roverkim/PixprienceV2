@@ -2,12 +2,36 @@
 
 #about-page{
     background-color: #44D9E6;
+    background-image: url("https://i.ytimg.com/vi/urImsKh4wNU/maxresdefault.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    max-height: 100%;
+    color: white;
 }
 
+
+.team-member .active{
+    background-color: rgba(0,0,0,0);
+    opacity: 0;
+
+}
+
+.section-heading {
+    font-size: 4vh;
+    margin: 20px;
+    font-family: 'Didact Gothic', sans-serif;
+}
+
+.section-subheading {
+    font-size: 3vh;
+    margin: 20px;
+    font-family: 'Didact Gothic', sans-serif;
+}
 /* .section-heading{
 
 }
 
 .section-subheading{
-    
+
 } */

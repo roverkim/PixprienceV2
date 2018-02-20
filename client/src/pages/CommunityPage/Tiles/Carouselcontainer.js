@@ -1,25 +1,34 @@
 import React, {Component} from 'react';
+import {Slider, Slide} from 'react-materialize';
 
 export default class Carouselcontainer extends Component {
   render() {
-    return (<div className=" metro tile-wide bg-orange fg-white" data-role="tile">
-      <div className=" metro widget tile-content">
-        <Slider style={{height: "inherit"}}>
-          <Slide src={this.props.image} title="This is our big Tagline!">
-            Here's our small slogan.
-          </Slide>
-          <Slide src={this.props.image1} title="Left aligned Caption" placement="left" style={{
-              height: "inherit"
-            }}>
-            Here's our small slogan.
-          </Slide>
-          <Slide src={this.props.image2} title="Right aligned Caption" placement="right">
-            Here's our small slogan.
-          </Slide>
-        </Slider>
-        <div className="tile-label">{this.props.label}</div>
+    return (
+      <div className=" metro tile bg-orange fg-white" data-role="tile">
+        <div className=" metro widget tile-content">
+          <Slider>
+            <Slide
+              src={this.props.image}
+              title={this.props.slidetitle}>
+              {this.props.slogan}
+            </Slide>
+            <Slide
+              src={this.props.image1}
+              title={this.props.slidetitle1}
+              placement="left" >
+              {this.props.slogan1}
+            </Slide>
+            <Slide
+              src={this.props.image2}
+              title={this.props.slidetitle2}
+              placement="right">
+              {this.props.slogan2}
+            </Slide>
+          </Slider>
+          <div className="tile-label">{this.props.title}</div>
+        </div>
       </div>
-    </div>);
+  );
   }
 }
 

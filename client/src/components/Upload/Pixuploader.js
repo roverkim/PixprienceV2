@@ -1,3 +1,4 @@
+
 import React from 'react';
 import FileBase64 from 'react-file-base64';
 import axios from "axios";
@@ -7,10 +8,12 @@ import "react-toggle/style.css"
 import StarRatings from 'react-star-ratings';
 
 
+
 export default class Pixupload extends React.Component {
     constructor(props) {
         super(props);
         this.clientEmail = localStorage.getItem("userEmail");
+
           console.log(this.clientEmail);
         this.state={
             img: [],
@@ -30,6 +33,7 @@ export default class Pixupload extends React.Component {
         this.handleInputChangeLocation = this.handleInputChangeLocation.bind(this);
         this.handleFileUpload = this.handleFileUpload.bind(this);
         this.changeRating = this.changeRating.bind(this);
+
     }
 
     //FUNCTION FOR WHAT HAPPENS WHEN SUBMIT BUTTON IS CLICKED AKA COLLECTING AND SENDING FILE
@@ -47,14 +51,8 @@ export default class Pixupload extends React.Component {
         }
 
 
-
-{/* }  handleClick() {
-           this.setState(prevState => ({
-             isToggleOn: !prevState.isToggleOn
-           }));
-         } */}
-
         axios.post('/test/upload', data)
+
             .then(function(response) {
                 console.log(response);
             })
@@ -64,25 +62,25 @@ export default class Pixupload extends React.Component {
     }
 
     handleInputChangeNotes(e) {
-        console.log('handle inpout chance notes@@');
+        console.log("handle input chance notes@@");
         this.setState({notes: e.target.value})
     }
     handleInputChangeTitle(e) {
-        console.log('handle inpout chance notes@@');
+        console.log("handle input chance title");
         this.setState({title: e.target.value})
     }
+
     handleInputChangeLocation(e) {
         console.log('handle inpout change location');
         this.setState({location: e.target.value})
     }
-    // handleInputChangeCheckbox(e) {
-    //     console.log('handle input change checkbox');
-    //     this.setState({checkbox: ?????})
-    //
+
 
     handleFileUpload(picture) {
+        console.log("fileupload" + JSON.stringify(this.state.img.concat(picture)[0].base64));
         this.setState({
             img: this.state.img.concat(picture),
+            imagePreviewUrl: this.state.img.concat(picture)[0].base64
         });
     }
 
@@ -94,14 +92,13 @@ export default class Pixupload extends React.Component {
     }
 
 //CREATION OF THE FORM UI
-    render() {
-      {
+    render() { {
+
         let {imagePreviewUrl} = this.state;
         let $imagePreview = null;
         if (imagePreviewUrl) {
             $imagePreview = (<img src={this.state.imagePreviewUrl} />);
         }
-
 
         console.log(this.state);
         return (
@@ -185,3 +182,6 @@ export default class Pixupload extends React.Component {
   }
 }
 }
+
+
+export default Pixupload

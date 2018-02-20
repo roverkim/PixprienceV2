@@ -19,15 +19,15 @@
     "id": 3,
     "name": "Paige Lo",
     "image": "../../../img/Paige-Lo.jpeg",
-    "role": "Backend Developer",
+    "role": "Designer / Developer",
     "linkedIn":"#",
     "github":"#"
   },
   {
     "id": 4,
     "name": "Babak Shahian Jahromi",
-    "image": "../../../img/250x250.png",
-    "role":"Timeline Developer",
+    "image": "../../../img/Babak.png",
+    "role":"Developer",
     "linkedIn":"#",
     "github":"#"
   },

@@ -1,12 +1,13 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 
-export default class Slideupcontainer extends Component {
+export default class Slidedowncontainer extends Component {
   render() {
     return (
-      <div className="tile fg-white" data-role="tile" data-effect="slideUp">
+
+      <div className="tile fg-white" data-role="tile" data-effect="slideDown">
         <div className="tile-content">
           <div className="live-slide" style={{
-              top: '15.3889px'
+              top: '-15.8359px'
             }}>
             <div className="image-container image-format-fill" style={{
                 width: '100%',
@@ -25,7 +26,7 @@ export default class Slideupcontainer extends Component {
             </div>
           </div>
           <div className="live-slide" style={{
-              top: '-150px',
+              top: 150,
               display: 'block'
             }}>
             <div className="image-container image-format-fill" style={{
@@ -45,7 +46,7 @@ export default class Slideupcontainer extends Component {
             </div>
           </div>
           <div className="live-slide" style={{
-              top: '-150px',
+              top: 150,
               display: 'block'
             }}>
             <div className="image-container image-format-fill" style={{
@@ -65,7 +66,7 @@ export default class Slideupcontainer extends Component {
             </div>
           </div>
           <div className="live-slide" style={{
-              top: '-150px',
+              top: 150,
               display: 'block'
             }}>
             <div className="image-container image-format-fill" style={{
@@ -85,7 +86,7 @@ export default class Slideupcontainer extends Component {
             </div>
           </div>
           <div className="live-slide" style={{
-              top: '-134.611px',
+              top: '134.164px',
               display: 'block'
             }}>
             <div className="image-container image-format-fill" style={{

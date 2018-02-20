@@ -3,10 +3,10 @@ import ReactDOM from "react-dom";
 import {Carousel} from "react-materialize"
 import Pixupload from "../../components/Upload/Pixuploader"
 import UploadModal from "../../components/UploadModal/UploadModal"
-import API from '../../utils/API.js'
-import TimelineImage from  '../../components/TimelineImage'
-import Auth from '../../modules/Auth';
-import NavLogin from '../../components/NavBar';
+import API from "../../utils/API.js"
+import TimelineImage from  "../../components/TimelineImage"
+import Auth from "../../modules/Auth";
+import NavLogin from "../../components/NavBar";
 import axios from "axios";
 
 class Timeline extends Component {
@@ -49,11 +49,8 @@ class Timeline extends Component {
   });
   xhr.send();
 
-
   console.log(window.localStorage.getItem('userEmail')); // Code to Get userEmail so that you can query the backed by email ID
-
 }
-
 /////////////////////////////////////////////// /* Fetching Images */ //////////////////////////////////////////////////////////
 
   fetchCommunityImages() { // Function to Fetch Community Images
@@ -73,8 +70,8 @@ class Timeline extends Component {
 
 
     let clientEmail = localStorage.getItem('userEmail');
-    // axios.get('/test/images', {params: { email: clientEmail }})
-    axios.get('/test/images')
+    axios.get('/test/images', {params: { email: clientEmail }})
+    // axios.get('/test/images')
         .then( response => {
           // console.log(response)
           this.setState({
@@ -100,21 +97,7 @@ class Timeline extends Component {
     return (
 
       <div>
-      <NavLogin/>
-      <nav className="teal accent-4" role="navigation">
-        {/* <Pixupload /> */}
-        <UploadModal />
-        <div className="nav-wrapper container">
-          <ul id="nav-mobile" className="side-nav">
-            <li>
-              <a href="#">#3651</a>
-            </li>
-          </ul>
-          <a href="#" data-activates="nav-mobile" className="button-collapse">
-            <i className="material-icons">menu</i>
-          </a>
-        </div>
-      </nav>
+      <NavLogin active={this.props.active}/>
       <div className="section no-pad-bot" id="index-banner">
         <div className="container">
           <br/><br/>
