@@ -78,12 +78,12 @@ class Timeline extends Component {
           });
 
           this.setState({
-            asyncImages: this.state.timeline_images.map(base64_image => base64_image.image) // Replace AysncImages Null with an Array of Images taken from
-          }, () => console.log("Fetched Images = " + this.state.timeline_images))
 
-          // console.log(this.state.timeline_images)
-
-
+                asyncImages: this.state.timeline_images.map(base64_image => {return {'image': base64_image.image, 'title' : base64_image.title, 'dateAdded' : base64_image.dateAdded}}) // Replace AysncImages Null with an Array of Images taken from
+          }, ()=>this.setState({ asyncCarousel: this.state.asyncImages.map(data => <TimelineImage image={data.image} title={data.title} dateAdded={data.dateAdded}/>)})); 
+          // () => 
+          //(<TimelineImage image={data.image} title={data.title} date={data.date}/>
+          //
         })
         .catch(function (error) {
           console.log(error);
@@ -105,7 +105,11 @@ class Timeline extends Component {
         </div>
       </div>
       {/* Condition for Rendering Async Carousel Images  */}
-     {this.state.asyncImages? (<Carousel images={this.state.asyncImages}/>) : (<div> Carousel is Loading </div>)}
+     {/* {this.state.asyncCarousel ? (<Carousel>{this.state.asyncCarousel.forEach(element => {
+       return{element};
+     })}</Carousel>) : (<div> Carousel is Loading </div>)} */}
+    {/* {this.state.asyncImages ? this.setState({ asyncCarousel: this.state.asyncImages.map(data => <TimelineImage image={data.image} title={data.title} dateAdded={data.dateAdded}/>)}) : console.log("you suck")} */}
+    {this.state.asyncCarousel ? <Carousel>{this.state.asyncCarousel}</Carousel> : console.log("WE ONLY MARGINALLY SUCK")}
 
     </div>
     );
