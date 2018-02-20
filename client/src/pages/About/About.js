@@ -109,7 +109,7 @@ class About extends React.Component {
                   <h6 class="section-subheading">The behind your Pixperience experience</h6>
                 </Col>
               </Row>
-              <Carousel>
+              <Carousel className="carousel" id="teamCarousel">
                 {this.state.teamMember.map(teamMember => (<Team id={teamMember.id} name={teamMember.name} image={teamMember.image} role={teamMember.role}/>))}
               </Carousel>
             </div>
@@ -119,7 +119,6 @@ class About extends React.Component {
     </Fragment>);
   }
 }
-//className="carousel" id="teamCarousel"
 
 const containerBackground = {
   backgroundColor: "white"
