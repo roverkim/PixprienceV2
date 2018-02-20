@@ -19,7 +19,8 @@ class Timeline extends Component {
       timeline_images: [],
       secretData: '',
       carousel: false,
-      asyncImages: null
+      asyncImages: null,
+      asyncCarousel:null
     }
     this.fetchCommunityImages = this.fetchCommunityImages.bind(this);
     this.fetchTimelineImages = this.fetchTimelineImages.bind(this);
@@ -78,9 +79,8 @@ class Timeline extends Component {
           });
 
           this.setState({
-
-                asyncImages: this.state.timeline_images.map(base64_image => {return {'image': base64_image.image, 'title' : base64_image.title, 'dateAdded' : base64_image.dateAdded}}) // Replace AysncImages Null with an Array of Images taken from
-          }, ()=>this.setState({ asyncCarousel: this.state.asyncImages.map(data => <TimelineImage image={data.image} title={data.title} dateAdded={data.dateAdded}/>)})); 
+              asyncImages: this.state.timeline_images.map(base64_image => {return {'image': base64_image.image, 'title' : base64_image.title, 'dateAdded' : base64_image.dateAdded}}) // Replace AysncImages Null with an Array of Images taken from
+           }, ()=>this.setState({ asyncCarousel: this.state.asyncImages.map(data => <TimelineImage image={data.image} title={data.title} dateAdded={data.dateAdded}/>)})); 
           // () => 
           //(<TimelineImage image={data.image} title={data.title} date={data.date}/>
           //
@@ -104,11 +104,7 @@ class Timeline extends Component {
 
         </div>
       </div>
-      {/* Condition for Rendering Async Carousel Images  */}
-     {/* {this.state.asyncCarousel ? (<Carousel>{this.state.asyncCarousel.forEach(element => {
-       return{element};
-     })}</Carousel>) : (<div> Carousel is Loading </div>)} */}
-    {/* {this.state.asyncImages ? this.setState({ asyncCarousel: this.state.asyncImages.map(data => <TimelineImage image={data.image} title={data.title} dateAdded={data.dateAdded}/>)}) : console.log("you suck")} */}
+     
     {this.state.asyncCarousel ? <Carousel>{this.state.asyncCarousel}</Carousel> : console.log("WE ONLY MARGINALLY SUCK")}
 
     </div>
