@@ -40,12 +40,11 @@ class Timeline extends Component {
   xhr.setRequestHeader('Authorization', `bearer ${Auth.getToken()}`);
   xhr.responseType = 'json';
   xhr.addEventListener('load', () => {
-    console.log("HEYYYYYY" + xhr.response)
-    // if (xhr.status === 200) {
-    //   this.setState({
-    //     secretData: xhr.response.message
-    //   });
-    // }
+    if (xhr.status === 200) {
+      this.setState({
+        secretData: xhr.response.message
+      });
+    }
   });
   xhr.send();
 

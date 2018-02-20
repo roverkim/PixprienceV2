@@ -1,41 +1,32 @@
-
-import React from 'react';
-import FileBase64 from 'react-file-base64';
+import React from "react";
+import FileBase64 from "react-file-base64";
 import axios from "axios";
-//import ImageUploader from 'react-images-upload';
+// import ImageUploader from 'react-images-upload';
 import Toggle from 'react-toggle';
 import "react-toggle/style.css"
-import StarRatings from 'react-star-ratings';
 
-
-
-export default class Pixupload extends React.Component {
+class Pixupload extends React.Component {
     constructor(props) {
         super(props);
         this.clientEmail = localStorage.getItem("userEmail");
+        console.log(this.clientEmail);
 
-          console.log(this.clientEmail);
         this.state={
             img: [],
             notes: "",
+            title: "",
             location: "",
-            rating: 4,
-            share: true,
             userEmail: this.clientEmail,
-            imagePreviewUrl: null,
-            title: ""
+            imagePreviewUrl: null
         };
-
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleInputChangeNotes = this.handleInputChangeNotes.bind(this);
         this.handleInputChangeTitle = this.handleInputChangeTitle.bind(this);
         this.handleInputChangeLocation = this.handleInputChangeLocation.bind(this);
         this.handleFileUpload = this.handleFileUpload.bind(this);
-        this.changeRating = this.changeRating.bind(this);
-
+        //this.handleToggleChange=this.handleToggleChange.bind(this);
     }
-
     //FUNCTION FOR WHAT HAPPENS WHEN SUBMIT BUTTON IS CLICKED AKA COLLECTING AND SENDING FILE
     handleSubmit(event) {
         event.preventDefault();
@@ -43,16 +34,13 @@ export default class Pixupload extends React.Component {
         var data = {
             base64: this.state.img[0].base64,
             title: this.state.title,
+            notes: this.state.notes,
             location: this.state.location,
-            rating: this.state.rating,
-            userEmail: this.clientEmail,
-            //checkbox: this.state.checkbox,
-            notes: this.state.notes
+            //toggle: this.state.toggle,
+            userEmail: this.clientEmail
         }
 
-
-        axios.post('/test/upload', data)
-
+        axios.post("/test/upload", data)
             .then(function(response) {
                 console.log(response);
             })
@@ -75,7 +63,6 @@ export default class Pixupload extends React.Component {
         this.setState({location: e.target.value})
     }
 
-
     handleFileUpload(picture) {
         console.log("fileupload" + JSON.stringify(this.state.img.concat(picture)[0].base64));
         this.setState({
@@ -84,16 +71,8 @@ export default class Pixupload extends React.Component {
         });
     }
 
-    changeRating(newRating) {
-      console.log('handle star click');
-      this.setState({
-        rating: newRating
-      });
-    }
-
 //CREATION OF THE FORM UI
-    render() { {
-
+    render() {
         let {imagePreviewUrl} = this.state;
         let $imagePreview = null;
         if (imagePreviewUrl) {
@@ -103,84 +82,68 @@ export default class Pixupload extends React.Component {
         console.log(this.state);
         return (
             <div>
+                <FileBase64
+                    multiple={ true }
+                    onDone={ this.handleFileUpload.bind(this)}
+                />
+                <br />
 
-    <FileBase64
-        multiple={ true }
-        onDone={ this.handleFileUpload.bind(this)}
-    />
-    <br />
                 <img src={imagePreviewUrl} />
-        <label>
-            Title:
-              <input
-                  name="title"
-                  type="text"
-                  ref={input => {
-                      this.textInput = input;
-                  console.log(input);
-                  ;
-              }}
-              onChange={this.handleInputChangeTitle} />
-           </label>
 
-        <br />
+                <label>
+                    Title:
+                    <input
+                        name="title"
+                        type="text"
+                        ref={input => {
+                            this.textInput = input;
+                            console.log(input);
+                            ;
+                        }}
+                        onChange={this.handleInputChangeTitle} />
+                </label>
+                <br />
+                <label>
+                    Notes:
+                    <input
+                        name="notes"
+                        type="text"
+                        ref={input => {
+                            this.textInput = input;
+                            ;
+                        }}
+                        onChange={this.handleInputChangeNotes}
+                    />
+                <label>
+                    Location:
+                      <input
+                          name="location"
+                          type="text"
+                          ref={input => {
+                              this.textInput = input;
+                          ;
+                      }}
+                     onChange={this.handleInputChangeLocation} />
+                   </label>
 
-        <label>
-          Notes:
-            <input
-                name="notes"
-                type="text"
-                ref={input => {
-                    this.textInput = input;
-                ;
-            }}
-            onChange={this.handleInputChangeNotes} />
-         </label>
-         <br />
-         <label>
-           Location
-             <input
-                 name="location"
-                 type="text"
-                 ref={input => {
-                     this.textInput = input;
-                 ;
-             }}
-            onChange={this.handleInputChangeLocation} />
-          </label>
-
-        <br />
-         <label>
-       <StarRatings
-         rating={this.state.rating}
-         starRatedColor="magenta"
-         onChange={this.changeRating}
-         numberOfStars={6}
-       />
-          </label>
-
-
-<br />
-
-<br />
-          <label>
-          Share?
-           <Toggle
-            checked={this.state.Toggle}
-            name='burritoIsReady'
-            value='yes'
-            onChange={this.handleToggleChange}/>
-            </label>
-              <br />
-              <br />
-        <button onClick={this.handleSubmit}>
-        SUBMIT UR PIC
-        </button>
-    </div>
-
-  )
-  }
-}
+                  <br />
+                  <label>
+                      Share Photo?:
+                       <Toggle
+                        checked={this.state.Toggle}
+                        name='toggle'
+                        value='yes'
+                        onChange={this.handleToggleChange}/>
+                  </label>
+                          <br />
+                          <br />
+                </label>
+                <button onClick={this.handleSubmit}>
+                    SUBMIT UR PIC :)
+                </button>
+            </div>
+        );
+    }
 }
 
 
