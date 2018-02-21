@@ -80,7 +80,7 @@ class Timeline extends Component {
 
           this.setState({
               asyncImages: this.state.timeline_images.map(base64_image => {return {'image': base64_image.image, 'title' : base64_image.title, 'dateAdded' : base64_image.dateAdded}}) // Replace AysncImages Null with an Array of Images taken from
-           }, ()=>this.setState({ asyncCarousel: this.state.asyncImages.map(data => <TimelineImage image={data.image} title={data.title} dateAdded={data.dateAdded}/>)}));
+           }, ()=>this.setState({ asyncCarousel: this.state.asyncImages.map(data => <TimelineImage image={data.image} title={data.title} dateAdded={data.dateAdded.toDateString}/>)}));
           // () =>
           //(<TimelineImage image={data.image} title={data.title} date={data.date}/>
           //

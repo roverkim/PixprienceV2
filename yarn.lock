@@ -4662,6 +4662,10 @@ rc@^1.1.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
+react-moment@^0.7.0:
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/react-moment/-/react-moment-0.7.0.tgz#9ccb5c87be683d08c253b48469167443f09c3d89"
+
 read-only-stream@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/read-only-stream/-/read-only-stream-2.0.0.tgz#2724fd6a8113d73764ac288d4386270c1dbf17f0"
