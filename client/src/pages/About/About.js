@@ -97,16 +97,11 @@ class About extends React.Component {
         <div className="content">
           <section id="about-page">
             <div className="container" style={containerBackground}>
-              <Row>
+              <Row style={{"margin-top": "40px", "margin-bottom": 0}}>
                 <Col s={12} className="center-align">
                   {/* Motto and About */}
-                  <h3 class="section-heading">Our Motto</h3>
-                  <h6 class="section-subheading">Pixprience is your life. your real life. Uncurated. Unfiltered. Unfollowed.</h6>
-                  <h3 class="section-heading">About</h3>
-                  <h6 class="section-subheading">Pixperience was inspired to bring you your experiences in their purest form. Use pixprience and rediscover You.</h6>
-                  {/* Team Members Carousel */}
-                  <h3 class="section-heading">Meet the Team</h3>
-                  <h6 class="section-subheading">The behind your Pixperience experience</h6>
+                  <h2 style={{"font-size": "6vh"}}>About</h2>
+                  <h6 class="section-subheading">Pixperience was inspired to bring you your experiences in their purest form. <br/>Use pixprience and rediscover You.</h6>
                 </Col>
               </Row>
               <Carousel>
