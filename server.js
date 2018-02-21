@@ -59,23 +59,17 @@ app.use(cors());
 const db = require("./models"); // Sequelize Models
 // images Upload Route
 app.post("/test/upload", function(req, res) {
-  // console.log("Submit imagess Path hit");
-  // console.log("BODY", req.body);
-  // console.log(req.body.title);
-  // console.log(req.body.notes);
-  // console.log(req.body.userEmail);
 
-
-  var testImage = {image: req.body.base64, title: req.body.title, notes: req.body.notes, userEmail: req.body.userEmail}
-  // console.log(testImage);
-  db.Image.create({image: req.body.base64, title: req.body.title, notes: req.body.notes, userEmail: req.body.userEmail}).then(function(dbImage) {
-    // console.log(dbImage);
-    // console.log("image databse hit")
+  let testImage = {image: req.body.base64, title: req.body.title, notes: req.body.notes, userEmail: req.body.userEmail, lat: req.body.lat, lng: req.body.lng, share: req.body.share}
+  console.log("Share is " + req.body.share)
+  db.Image.create(testImage).then(function(dbImage) {
+    res.send("Image Uploaded Sucessfully")
   }).catch(function(err) {
     // console.log(err.message);
     // console.log("there is an error");
   })
 });
+
 // // Delete After Paige Adds Email To IMage Field
 // app.get("/test/images", function(req, res) {
 //   console.log("images path hit.")

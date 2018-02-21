@@ -80,7 +80,8 @@ class Timeline extends Component {
 
           this.setState({
               asyncImages: this.state.timeline_images.map(base64_image => {return {'image': base64_image.image, 'title' : base64_image.title, 'dateAdded' : base64_image.dateAdded}}) // Replace AysncImages Null with an Array of Images taken from
-           }, ()=>this.setState({ asyncCarousel: this.state.asyncImages.map(data => <TimelineImage image={data.image} title={data.title} dateAdded={data.dateAdded}/>)}));
+           }, ()=> this.state.asyncImages.length >= 1?
+           this.setState({ asyncCarousel: this.state.asyncImages.map(data => <TimelineImage image={data.image} title={data.title} dateAdded={data.dateAdded}/>)}): this.setState({asyncCarousel: true}));
           // () =>
           //(<TimelineImage image={data.image} title={data.title} date={data.date}/>
           //
@@ -100,9 +101,9 @@ class Timeline extends Component {
       <div className="section no-pad-bot" id="index-banner">
         <div className="container" style={{"text-align": "center"}}>
           <br/><br/>
-          <h1 className="header center blue-grey-text">Welcome to your timeline</h1>
+          <h1 className="center blue-grey-text">Welcome to your timeline</h1>
           <br/><br/>
-          {this.state.asyncCarousel ? <Carousel>{this.state.asyncCarousel}</Carousel> : (
+          {this.state.asyncCarousel ? this.state.asyncImages.length >= 1? <Carousel>{this.state.asyncCarousel}</Carousel> : <div style={{color: "white"}}> <h2>Please Upload an Image to get Started </h2> <br/><img src="https://media.giphy.com/media/l1KVcrdl7rJpFnY2s/source.gif"/> </div> : (
             <div class="preloader-wrapper big active" style={{background: "none"}}>
               <div class="spinner-layer spinner-blue">
                 <div class="circle-clipper left">
