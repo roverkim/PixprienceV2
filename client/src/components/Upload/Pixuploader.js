@@ -25,7 +25,8 @@ class Pixupload extends React.Component {
       userEmail: this.clientEmail,
       imagePreviewUrl: null,
       toggle: true,
-      address: "Northwestern University"
+      address: "Northwestern University",
+      submitLoading: false
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -40,6 +41,8 @@ class Pixupload extends React.Component {
   //FUNCTION FOR WHAT HAPPENS WHEN SUBMIT BUTTON IS CLICKED AKA COLLECTING AND SENDING FILE
   handleSubmit(event) {
     event.preventDefault();
+
+    this.setState({submitLoading : true});
 
     geocodeByAddress(this.state.address).then(results => getLatLng(results[0])).then(latLng => {
       console.log('Image Lat and Long Are', JSON.stringify(latLng)); // Retrieve Address and Convert into Lat and Long
@@ -120,6 +123,8 @@ class Pixupload extends React.Component {
     // console.log(this.state);
     return (<div id="uploadImagesModal">
 
+
+
       <div style={{"margin-bottom": "20px"}}>
         <label for="share" style={{"font-size": "5vh", "margin-right": "20px"}}>Share</label>
         <Toggle id="share" style = {{"margin-left": "40px"}}checked={this.state.toggle} name='toggle' value='yes' onChange={this.handleToggleChange}/>
@@ -155,7 +160,51 @@ class Pixupload extends React.Component {
 
     <br/>
 
-    <button className="btn" onClick={this.handleSubmit}> SUBMIT </button>
+  {this.state.submitLoading ?
+    (
+      <div class="preloader-wrapper big active" style={{background: "none"}}>
+        <div class="spinner-layer spinner-yellow">
+          <div class="circle-clipper left">
+            <div class="circle"></div>
+          </div><div class="gap-patch">
+            <div class="circle"></div>
+          </div><div class="circle-clipper right">
+            <div class="circle"></div>
+          </div>
+        </div>
+
+        <div class="spinner-layer spinner-green">
+          <div class="circle-clipper left">
+            <div class="circle"></div>
+          </div><div class="gap-patch">
+            <div class="circle"></div>
+          </div><div class="circle-clipper right">
+            <div class="circle"></div>
+          </div>
+        </div>
+
+        <div class="spinner-layer spinner-red ">
+          <div class="circle-clipper left">
+            <div class="circle"></div>
+          </div><div class="gap-patch">
+            <div class="circle"></div>
+          </div><div class="circle-clipper right">
+            <div class="circle"></div>
+          </div>
+        </div>
+
+        <div class="spinner-layer spinner-blue">
+          <div class="circle-clipper left">
+            <div class="circle"></div>
+          </div><div class="gap-patch">
+            <div class="circle"></div>
+          </div><div class="circle-clipper right">
+            <div class="circle"></div>
+          </div>
+        </div>
+      </div>
+    )
+    : <button className="btn" onClick={this.handleSubmit}> SUBMIT </button>}
   </div>);
   }
 }
