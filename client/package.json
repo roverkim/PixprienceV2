@@ -9,6 +9,7 @@
     "material-ui": "^0.20.0",
     "materialize": "^1.0.0",
     "metro-dist": "^3.0.17",
+    "moment": "^2.20.1",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-async-script-loader": "^0.3.0",
