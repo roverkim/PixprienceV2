@@ -26,11 +26,13 @@ class Timeline extends Component {
     }
     this.fetchCommunityImages = this.fetchCommunityImages.bind(this);
     this.fetchTimelineImages = this.fetchTimelineImages.bind(this);
+    this.getBrowserLocation = this.getBrowserLocation.bind(this);
   } // End of Constructor
 
   componentWillMount() {
     this.fetchCommunityImages();
     this.fetchTimelineImages();
+    this.getBrowserLocation();
   }
 
   /////////////////////////////////////////////// /* Authentication */ //////////////////////////////////////////////////////////
@@ -53,6 +55,42 @@ class Timeline extends Component {
 
   // console.log(window.localStorage.getItem('userEmail')); // Code to Get userEmail so that you can query the backed by email ID
 }
+
+/////////////////////////////////////////////// /* Geolocation */ //////////////////////////////////////////////////////////
+
+getBrowserLocation(){
+  if (navigator.geolocation) {
+    console.log('Geolocation is supported!');
+
+    let geoSuccess = function(position) {
+     let startPos = position;
+     console.log("Browser Lat is :" + startPos.coords.latitude);
+     console.log("Browser Long is : " + startPos.coords.longitude);
+     localStorage.setItem('browserLat', startPos.coords.latitude);
+     localStorage.setItem('browserLong', startPos.coords.longitude);
+   };
+
+   let geoError = function(error) {
+     console.log('Error occurred. Error code: ' + error.code);
+      // error.code can be:
+      //   0: unknown error
+      //   1: permission denied
+      //   2: position unavailable (error response from location provider)
+      //   3: timed out
+    };
+
+    let geoOptions = {
+       timeout: 10 * 10000
+    }
+
+    navigator.geolocation.watchPosition(geoSuccess, geoError, geoOptions);
+  }
+  else {
+    console.log('Geolocation is not supported for this Browser/OS.');
+  }
+}
+
+
 /////////////////////////////////////////////// /* Fetching Images */ //////////////////////////////////////////////////////////
 
   fetchCommunityImages() { // Function to Fetch Community Images
