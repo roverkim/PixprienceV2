@@ -21,11 +21,11 @@ const imageSchema = new Schema({
         type: Date,
         default: Date.now
     },
-    latitude: {
+    lat: {
         type: String,
         trim: true
     },
-    longitude: {
+    lng: {
         type: String,
         trim: true
     },

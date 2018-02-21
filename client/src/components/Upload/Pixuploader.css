@@ -2,3 +2,11 @@
     height: 100px;
     width: 250px;
 }
+
+#uploadImagesModal .active {
+  background: none;
+}
+
+#uploadImagesModal  #PlacesAutocomplete__root input[type=text]{
+  padding-top : 50px !important;
+}
