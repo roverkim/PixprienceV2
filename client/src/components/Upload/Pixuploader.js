@@ -4,6 +4,7 @@ import FileBase64 from "react-file-base64";
 import axios from "axios";
 // import ImageUploader from 'react-images-upload';
 import Toggle from 'react-toggle';
+import moment from "moment"
 
 /////////////////////////////////////////////// /* Autocomplete */ ////////////////////////////////////////////////
 import PlacesAutocomplete from 'react-places-autocomplete';
@@ -24,7 +25,7 @@ class Pixupload extends React.Component {
       userEmail: this.clientEmail,
       imagePreviewUrl: null,
       toggle: true,
-      address: "North Western University"
+      address: "Northwestern University"
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -50,9 +51,11 @@ class Pixupload extends React.Component {
         lat: latLng.lat,
         lng: latLng.lng,
         share: this.state.toggle,
-        userEmail: this.clientEmail
+        userEmail: this.clientEmail,
+        timelineDate: moment(Date.now()).format("MMM Do YYYY")
       }
-
+      console.log("Date", moment(Date.now()).format("MMM Do YYYY"))
+      console.log("Date (2)", data.dateAdded);
       axios.post("/test/upload", data).then(function(response) {
         console.log(response);
         window.location.reload();

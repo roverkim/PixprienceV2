@@ -21,6 +21,9 @@ const imageSchema = new Schema({
         type: Date,
         default: Date.now
     },
+    timelineDate:{
+        type: String
+    },
     lat: {
         type: String,
         trim: true

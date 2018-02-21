@@ -33,14 +33,7 @@ class MapContainer extends React.Component {
       // console.log(response)
       this.setState({imageData: response.data});
 
-      //   this.setState({
-      //     asyncImages: this.state.timeline_images.map(base64_image => base64_image.image)  Replace AysncImages Null with an Array of Images taken from
-      //   })
-
-      //    console.log(this.state.timeline_images)
-
-      // take the images that come from the back end and then convert the location to lat/lng and then store the new object in new array
-
+      
     }).catch(function(error) {
       console.log(error);
     });
@@ -56,4 +49,4 @@ class MapContainer extends React.Component {
   }
 }
 // export the container within the GoogleApiWrapper
-export default GoogleApiWrapper({apiKey: "AIzaSyAJQ__z06-Y3H9TYepxUNOicjA-CEwGJsw", libraries: ['places']})(MapContainer)
+export default GoogleApiWrapper({apiKey: "AIzaSyAJQ__z06-Y3H9TYepxUNOicjA-CEwGJsw",libraries: ['places']})(MapContainer)
