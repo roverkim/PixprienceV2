@@ -1,0 +1,7 @@
+#index-banner .carousel-item img{
+  max-height: 100%;
+}
+
+#index-banner .carousel .active {
+  background: none !important;
+}

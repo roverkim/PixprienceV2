@@ -9,6 +9,8 @@ import Auth from "../../modules/Auth";
 import NavLogin from "../../components/NavBar";
 import axios from "axios";
 
+import './Timeline.css';
+
 class Timeline extends Component {
 
   constructor() {
