@@ -76,8 +76,9 @@ class Map extends React.Component {
 
             this.props.imageData.map((data) => {
                 console.log("placing marker on map")
+                console.log("data is" + JSON.stringify(data));
                 const marker = new google.maps.Marker({
-                    position: {lat:data.lat, lng:data.lng},
+                    position: {lat:parseFloat(data.lat), lng:parseFloat(data.lng)},
                     map: this.map,
                     title: data.title
                     // icon: data.image
@@ -88,7 +89,7 @@ class Map extends React.Component {
                     <div class="container right-align">
                     <img src=${data.image} style="height:200px; width:200px" class="responsive marker-image" id=${data.title}>
                     <h5>Title: ${data.title}</h5>
-                    <h5>Date: ${data.dateAdded}</h5>
+                    <h5>Date: ${data.timelineDate}</h5>
                     <h5>Notes: ${data.notes}</h5>
                     </div>`
                 });
@@ -127,8 +128,8 @@ Map.defaultProps = {
     //Chicago is default center
     //testing new york as center
     initialCenter: {
-        lat: 40.730610,
-        lng: -73.935242
+        lat:  41.881832,
+        lng: -87.623177
     },
     useBrowserLocation: false
 }

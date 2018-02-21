@@ -60,7 +60,7 @@ const db = require("./models"); // Sequelize Models
 // images Upload Route
 app.post("/test/upload", function(req, res) {
 
-  let testImage = {image: req.body.base64, title: req.body.title, notes: req.body.notes, userEmail: req.body.userEmail, lat: req.body.lat, lng: req.body.lng, share: req.body.share}
+  let testImage = {image: req.body.base64, title: req.body.title, notes: req.body.notes, userEmail: req.body.userEmail, lat: req.body.lat, lng: req.body.lng, share: req.body.share, timelineDate: req.body.timelineDate}
   console.log("Share is " + req.body.share)
   db.Image.create(testImage).then(function(dbImage) {
     res.send("Image Uploaded Sucessfully")
