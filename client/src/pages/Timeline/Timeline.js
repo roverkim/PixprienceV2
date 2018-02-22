@@ -140,11 +140,12 @@ getBrowserLocation(){
       <NavLogin active={this.props.active}/>
       <div className="section no-pad-bot" id="index-banner">
         <div className="container" style={{"text-align": "center"}}>
-          <br/><br/>
-          <h1 className="center blue-grey-text">Welcome to your timeline</h1>
+          <div className="row">
+            <h1 className="center blue-grey-text" style={{top: "15%", border: "none"}}>Welcome to your timeline</h1>
+          </div>
           <br/><br/>
           {this.state.asyncCarousel ? this.state.asyncImages.length >= 1? <Carousel>{this.state.asyncCarousel}</Carousel> : <div style={{color: "white"}}> <h2>Please Upload an Image to get Started </h2> <br/><img src="https://media.giphy.com/media/l1KVcrdl7rJpFnY2s/source.gif"/> </div> : (
-            <div class="preloader-wrapper big active" style={{background: "none"}}>
+            <div class="preloader-wrapper big active" style={{background: "none", "margin-top": "20px"}}>
               <div class="spinner-layer spinner-blue">
                 <div class="circle-clipper left">
                   <div class="circle"></div>
