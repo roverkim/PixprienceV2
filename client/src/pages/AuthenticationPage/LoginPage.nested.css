@@ -20,7 +20,7 @@
 .container-inside
 {
   width:80vw;
-  margin:20px auto 20px auto;
+  margin: 0 auto 20px auto;
   border-radius:10px;
   perspective:600px;
   display:flex;
@@ -396,4 +396,3 @@ input[type="checkbox"]:checked:after {
   0% {margin-left: 1000px;}
   100% {margin-left: -1000px;}
 }
-
