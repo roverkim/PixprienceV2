@@ -862,7 +862,7 @@ getBrowserLocation(){
       <div className="section no-pad-bot" id="index-banner" style={{display: "inline"}}>
         <div className="container" style={{"text-align": "center", height: "50% !important"}}>
           <div className="row">
-            <h1 className="center blue-grey-text" style={{top: "15%", border: "none", "font-family" : "'Didact Gothic', sans-serif "}}>Welcome to your timeline</h1>
+            <h1 className="center blue-grey-text" style={{top: "15%", border: "none", "font-family" : "'Didact Gothic', sans-serif ", "font-weight" : "bold"}}>Welcome to your timeline</h1>
           </div>
           <br/><br/>
           {this.state.asyncCarousel ? this.state.asyncImages.length >= 1? <Carousel>{this.state.asyncCarousel}</Carousel> : <div style={{color: "white"}}> <h2>Please Upload an Image to get Started </h2> <br/><img src="https://media.giphy.com/media/l1KVcrdl7rJpFnY2s/source.gif"/> </div> : (
