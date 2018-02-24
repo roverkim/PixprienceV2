@@ -269,7 +269,7 @@ export default class CommunityPage extends Component {
             <Slideupdowncontainer title={this.state.images[13].title} image={this.state.images[13].image} image1={this.state.images[14].image} />
             <Sliderightcontainer title={this.state.images[16].title}  image={this.state.images[16].image} image1={this.state.images[17].image} />
             <Imagecontainer title={this.state.images[18].title} label={this.state.images[18].notes} image={this.state.images[18].image}/>
-            <Slideupcontainer title={this.state.images[20].title} image={this.state.images[20].notes} image1={this.state.images[24].image} />
+            <Slideupcontainer title={this.state.images[20].title} image={this.state.images[20].image} image1={this.state.images[24].image} />
             <Slideupstatic title={this.state.images[21].title} slogan={this.state.images[21].notes} image={this.state.images[21].image}/>
             <Slidedowncontainer title={this.state.images[44].title} image={this.state.images[44].image} image1={this.state.images[45].image} />
 
@@ -289,7 +289,7 @@ export default class CommunityPage extends Component {
             <Imagecontainer title={this.state.images[40].title} label={this.state.images[40].notes} image={this.state.images[40].image}/>
             <Sliderightcontainer title={this.state.images[41].title} image={this.state.images[41].image} image1={this.state.images[42].image} />
             <Sliderightstatic title={this.state.images[43].title} slogan={this.state.images[43].notes} image={this.state.images[43].image}/>
-            <Carouselcontainer title='Carousel' slidetitle={this.state.images[22].title} slidetitle1={this.state.images[23].title} slogan={this.state.images[22].notes} slogan1={this.state.images[23].notes} slogan2={this.state.images[31].notes} image={this.state.images[22].image} image1={this.state.images[23].image} image2={this.state.images[5].image}/>
+            <Carouselcontainer title='Carousel' slidetitle={this.state.images[44].title} slidetitle1={this.state.images[44].title} slogan={this.state.images[22].notes} slogan1={this.state.images[23].notes} slogan2={this.state.images[31].notes} image={this.state.images[44].image} image1={this.state.images[45].image} image2={this.state.images[46].image}/>
             </div>
           ): <div> Loading </div>}
 
