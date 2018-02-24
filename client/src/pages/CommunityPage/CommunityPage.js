@@ -261,18 +261,19 @@ export default class CommunityPage extends Component {
             <Sliderightstatic title={this.state.images[6].title} slogan={this.state.images[6].notes} image={this.state.images[6].image}/>
             <Slideleftrightcontainer title={this.state.images[7].title} image={this.state.images[7].image} image1={this.state.images[8].image} />
             <Slideleftstatic title={this.state.images[9].title} slogan={this.state.images[9].notes} image={this.state.images[9].image}/>
-            <Carouselcontainer title='Carousel' slidetitle={this.state.images[10].title} slidetitle1={this.state.images[11].title} slogan={this.state.images[10].notes} slogan1={this.state.images[11].notes} image={this.state.images[10].image} image1={this.state.images[11].image}/>
+            <Carouselcontainer title='Carousel' slidetitle={this.state.images[10].title} slidetitle1={this.state.images[11].title} slidetitle2={this.state.images[13].title} slogan={this.state.images[10].notes} slogan1={this.state.images[11].notes} image={this.state.images[10].image} image1={this.state.images[11].image} image2={this.state.images[16].image}/>
 
             {/* Second Row */}
+
             <Slidedownstatic title={this.state.images[12].title} slogan={this.state.images[12].notes} image={this.state.images[12].image}/>
             <Slideupdowncontainer title={this.state.images[13].title} image={this.state.images[13].image} image1={this.state.images[14].image} />
             <Sliderightcontainer title={this.state.images[16].title}  image={this.state.images[16].image} image1={this.state.images[17].image} />
             <Imagecontainer title={this.state.images[18].title} label={this.state.images[18].notes} image={this.state.images[18].image}/>
-            <Slideupcontainer title={this.state.images[20].title} image={this.state.images[20].notes} image1={this.state.images[20].image} />
+            <Slideupcontainer title={this.state.images[20].title} image={this.state.images[20].notes} image1={this.state.images[24].image} />
             <Slideupstatic title={this.state.images[21].title} slogan={this.state.images[21].notes} image={this.state.images[21].image}/>
+            <Slidedowncontainer title={this.state.images[44].title} image={this.state.images[44].image} image1={this.state.images[45].image} />
 
             {/* Third Row */}
-            <Carouselcontainer title='Carousel' slidetitle={this.state.images[22].title} slidetitle1={this.state.images[23].title} slogan={this.state.images[22].notes} slogan1={this.state.images[23].notes} image={this.state.images[22].image} image1={this.state.images[23].image}/>
             <Slideupstatic title={this.state.images[24].title} slogan={this.state.images[24].notes} image={this.state.images[24].image}/>
             <Slideleftcontainer title={this.state.images[26].title} image={this.state.images[26].image} image1={this.state.images[27].image} />
             <Sliderightstatic title={this.state.images[28].title} slogan={this.state.images[28].notes} image={this.state.images[28].image}/>
@@ -288,6 +289,7 @@ export default class CommunityPage extends Component {
             <Imagecontainer title={this.state.images[40].title} label={this.state.images[40].notes} image={this.state.images[40].image}/>
             <Sliderightcontainer title={this.state.images[41].title} image={this.state.images[41].image} image1={this.state.images[42].image} />
             <Sliderightstatic title={this.state.images[43].title} slogan={this.state.images[43].notes} image={this.state.images[43].image}/>
+            <Carouselcontainer title='Carousel' slidetitle={this.state.images[22].title} slidetitle1={this.state.images[23].title} slogan={this.state.images[22].notes} slogan1={this.state.images[23].notes} slogan2={this.state.images[31].notes} image={this.state.images[22].image} image1={this.state.images[23].image} image2={this.state.images[5].image}/>
             </div>
           ): <div> Loading </div>}
 
