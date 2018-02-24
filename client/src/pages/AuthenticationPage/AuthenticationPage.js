@@ -115,7 +115,7 @@ export default class AuthenticationPage extends Component {
           {/* Left Container */}
           <div className="left-side" style={{opacity: 0.5, "margin-top": "10px", position: "relative"}}>
             <div style={{color: "white", position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", "text-align": "center", width: "100%"}}>
-              <h2 style={{color: "darkblue", opactiy: 1, "font-size": "2.5rem"}}>Pixprience <br/><span style={{"font-size" : "2rem" , color: "lightblue"}}> Your antisocial app. </span> <br/> <span style={{"font-size": "1.5rem", color : "yellow"}}>  Uncurated. Unfiltered. Unfollowed.</span></h2>
+              <h2 style={{color: "darkblue", opactiy: 1, "font-size": "2.5rem"}}>Pixprience <br/><span style={{"font-size" : "2rem" , color: "black"}}> Your antisocial app. </span> <br/> <span style={{"font-size": "1.5rem", color : "yellow"}}>  Uncurated. Unfiltered. Unfollowed.</span></h2>
             </div>
 
           </div>
