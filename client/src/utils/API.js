@@ -41,7 +41,25 @@ export default {
       image27 : "./img/27.jpg",
       image28 : "./img/28.jpg",
       image29 : "./img/29.jpg",
-      image30 : "./img/30.jpg"
+      image30 : "./img/30.jpg",
+      image31 : "./img/01.jpg",
+      image32 : "./img/02.jpg",
+      image33 : "./img/03.jpg",
+      image34 : "./img/04.jpg",
+      image35 : "./img/05.jpg",
+      image36 : "./img/06.jpg",
+      image37 : "./img/07.jpg",
+      image38 : "./img/08.jpg",
+      image39 : "./img/09.jpg",
+      image40 : "./img/10.jpg",
+      image41 : "./img/11.jpg",
+      image42 : "./img/12.jpg",
+      image43 : "./img/13.jpg",
+      image44 : "./img/14.jpg",
+      image45 : "./img/15.jpg",
+      image46 : "./img/16.jpg",
+      image47 : "./img/17.jpg",
+      image48 : "./img/18.jpg"
   } // End of Image Data
 
 };

@@ -1,4 +1,4 @@
-/////////////////////////////////////////////// /* Imports */ ////////////////////////////////////////////////
+/////////////////////////////////////////////// /* Imports */ //////////////////////////////////////////////
 import React from "react";
 import FileBase64 from "react-file-base64";
 import axios from "axios";
@@ -6,7 +6,7 @@ import axios from "axios";
 import Toggle from 'react-toggle';
 import moment from "moment"
 
-/////////////////////////////////////////////// /* Autocomplete */ ////////////////////////////////////////////////
+/////////////////////////////////////////////// /* Autocomplete */ //////////////////////////////////////////////
 import PlacesAutocomplete from 'react-places-autocomplete';
 import {geocodeByAddress, geocodeByPlaceId, getLatLng} from 'react-places-autocomplete';
 
@@ -42,7 +42,7 @@ class Pixupload extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
 
-    this.setState({submitLoading : true});
+    this.setState({submitLoading: true});
 
     geocodeByAddress(this.state.address).then(results => getLatLng(results[0])).then(latLng => {
       console.log('Image Lat and Long Are', JSON.stringify(latLng)); // Retrieve Address and Convert into Lat and Long
@@ -123,23 +123,38 @@ class Pixupload extends React.Component {
     // console.log(this.state);
     return (<div id="uploadImagesModal">
 
-
-
-      <div style={{"margin-bottom": "20px"}}>
-        <label for="share" style={{"font-size": "5vh", "margin-right": "20px"}}>Share</label>
-        <Toggle id="share" style = {{"margin-left": "40px"}}checked={this.state.toggle} name='toggle' value='yes' onChange={this.handleToggleChange}/>
+      <div style={{
+          "margin-bottom" : "20px"
+        }}>
+        <label for="share" style={{
+            "font-size" : "2.5rem",
+            "margin-right" : "20px"
+          }}>Share</label>
+        <Toggle checked={this.state.toggle} id="share" style={{
+            "margin-left" : "40px"
+          }} name='toggle' value='yes' onChange={this.handleToggleChange}/>
       </div>
-      <br style = {{margin: "20px"}}/>
+      <br style={{
+          margin: "20px"
+        }}/>
 
-      <FileBase64 multiple={true} onDone={this.handleFileUpload.bind(this)} style={{margin: "20px"}}/>
-      <br style = {{margin: "10px"}}/>
-      <img src={imagePreviewUrl}/>
+      <FileBase64 multiple={true} onDone={this.handleFileUpload.bind(this)} style={{
+          margin: "20px"
+        }}/>
+      <br style={{
+          margin: "10px"
+        }}/>
+      <div style={{height: "50%", "margin-top": "15px"}}>
+        <img className="responsive-img" src={imagePreviewUrl}/>
+      </div>
 
-      <br style = {{"margin-bottom": "40px"}}/>
+      <br style={{
+          "margin-bottom" : "40px"
+        }}/>
 
       <div className="input-field">
-        <label  for="title">Title</label>
-        <input id = "title"  name="title" type="text" ref={input => {
+        <label for="title">Title</label>
+        <input id="title" name="title" type="text" ref={input => {
             this.textInput = input;
             // console.log(input);;
           }} onChange={this.handleInputChangeTitle}/>
@@ -147,65 +162,77 @@ class Pixupload extends React.Component {
 
       <br/>
 
-    <div className="input-field">
-      <label for="notes" >Notes</label>
-      <input  id="notes" name="notes" type="text" ref={input => {
-          this.textInput = input;;
-        }} onChange={this.handleInputChangeNotes}/>
-    </div>
-    <div className="input-field">
-      <label for="location" style={{"margin-bottom": "50px"}}>Location</label>
-      <PlacesAutocomplete id="location" inputProps={inputProps} type="text"/>
-    </div>
-
-    <br/>
-
-  {this.state.submitLoading ?
-    (
-      <div class="preloader-wrapper big active" style={{background: "none"}}>
-        <div class="spinner-layer spinner-yellow">
-          <div class="circle-clipper left">
-            <div class="circle"></div>
-          </div><div class="gap-patch">
-            <div class="circle"></div>
-          </div><div class="circle-clipper right">
-            <div class="circle"></div>
-          </div>
-        </div>
-
-        <div class="spinner-layer spinner-green">
-          <div class="circle-clipper left">
-            <div class="circle"></div>
-          </div><div class="gap-patch">
-            <div class="circle"></div>
-          </div><div class="circle-clipper right">
-            <div class="circle"></div>
-          </div>
-        </div>
-
-        <div class="spinner-layer spinner-red ">
-          <div class="circle-clipper left">
-            <div class="circle"></div>
-          </div><div class="gap-patch">
-            <div class="circle"></div>
-          </div><div class="circle-clipper right">
-            <div class="circle"></div>
-          </div>
-        </div>
-
-        <div class="spinner-layer spinner-blue">
-          <div class="circle-clipper left">
-            <div class="circle"></div>
-          </div><div class="gap-patch">
-            <div class="circle"></div>
-          </div><div class="circle-clipper right">
-            <div class="circle"></div>
-          </div>
-        </div>
+      <div className="input-field">
+        <label for="notes">Notes</label>
+        <input id="notes" name="notes" type="text" ref={input => {
+            this.textInput = input;;
+          }} onChange={this.handleInputChangeNotes}/>
       </div>
-    )
-    : <button className="btn" onClick={this.handleSubmit}> SUBMIT </button>}
-  </div>);
+      <div className="input-field">
+        <label for="location" style={{
+            "margin-bottom" : "50px"
+          }}>Location</label>
+        <PlacesAutocomplete id="location" inputProps={inputProps} type="text"/>
+      </div>
+
+      <br/> {
+        this.state.submitLoading
+          ? (<div class="preloader-wrapper big active" style={{
+              background: "none"
+            }}>
+            <div class="spinner-layer spinner-yellow">
+              <div class="circle-clipper left">
+                <div class="circle"></div>
+              </div>
+              <div class="gap-patch">
+                <div class="circle"></div>
+              </div>
+              <div class="circle-clipper right">
+                <div class="circle"></div>
+              </div>
+            </div>
+
+            <div class="spinner-layer spinner-green">
+              <div class="circle-clipper left">
+                <div class="circle"></div>
+              </div>
+              <div class="gap-patch">
+                <div class="circle"></div>
+              </div>
+              <div class="circle-clipper right">
+                <div class="circle"></div>
+              </div>
+            </div>
+
+            <div class="spinner-layer spinner-red ">
+              <div class="circle-clipper left">
+                <div class="circle"></div>
+              </div>
+              <div class="gap-patch">
+                <div class="circle"></div>
+              </div>
+              <div class="circle-clipper right">
+                <div class="circle"></div>
+              </div>
+            </div>
+
+            <div class="spinner-layer spinner-blue">
+              <div class="circle-clipper left">
+                <div class="circle"></div>
+              </div>
+              <div class="gap-patch">
+                <div class="circle"></div>
+              </div>
+              <div class="circle-clipper right">
+                <div class="circle"></div>
+              </div>
+            </div>
+          </div>)
+          : <button className="btn" onClick={this.handleSubmit}>
+              SUBMIT
+            </button>
+      }
+    </div>);
   }
 }
 

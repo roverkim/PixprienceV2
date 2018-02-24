@@ -6,6 +6,7 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 import createBrowserHistory from 'history/createBrowserHistory';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+// import 'intro.js/introjs.css';
 
 //////////////////////////////////////////////// /* Components */ //////////////////////////////////////////////////////////
 import Auth from './modules/Auth';

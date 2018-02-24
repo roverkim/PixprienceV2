@@ -222,22 +222,21 @@ export default class CommunityPage extends Component {
     let fetchedImages = [];
 
     for (let key in API.imageData) { // Get Images from API Ajax Call and Store into Variable fetchedImages
-      preloadImages.push(API.imageData[key]);
+      preloadImages.push({image:API.imageData[key], title: "Loading", notes: "In Progress"});
     }
 
     console.log(preloadImages)
 
     this.setState(prevState => ({
       images: [...prevState].concat(preloadImages)
-    }), () => console.log(this.state))
+    }))
 
     API.queryBackendGet('/community/images').then(imagesObject => {
 
       console.log("Getting Images")
-      imagesObject.data.map(eachImageObject => fetchedImages.push(eachImageObject.image))
+      imagesObject.data.map(eachImageObject => fetchedImages.push({image: eachImageObject.image, title: eachImageObject.title, notes: eachImageObject.notes }))
 
-      console.log("Fetched Images are " + fetchedImages)
-      this.setState(prevState => ({images: fetchedImages}), () => console.log(this.state))
+      this.setState(prevState => ({images: fetchedImages}))
 
     })
 
@@ -253,37 +252,46 @@ export default class CommunityPage extends Component {
           left: "100px"
         }}>
         <div className="tile-container">
+          {this.state.images.length > 0? (
+            /* First Row */
+            <div>
+            <Slideleftcontainer title={this.state.images[0].title} image={this.state.images[0].image} image1={this.state.images[1].image} />
+            <Slideupstatic title={this.state.images[3].title} slogan={this.state.images[3].notes} image={this.state.images[3].image}/>
+            <Slidedowncontainer title={this.state.images[4].title} image={this.state.images[4].image} image1={this.state.images[5].image}/>
+            <Sliderightstatic title={this.state.images[6].title} slogan={this.state.images[6].notes} image={this.state.images[6].image}/>
+            <Slideleftrightcontainer title={this.state.images[7].title} image={this.state.images[7].image} image1={this.state.images[8].image} />
+            <Slideleftstatic title={this.state.images[9].title} slogan={this.state.images[9].notes} image={this.state.images[9].image}/>
+            <Carouselcontainer title='Carousel' slidetitle={this.state.images[10].title} slidetitle1={this.state.images[11].title} slogan={this.state.images[10].notes} slogan1={this.state.images[11].notes} image={this.state.images[10].image} image1={this.state.images[11].image}/>
 
-          {/* First Row */}
-          <Slideleftcontainer title='Slide Left' image={this.state.images[1]} image1={this.state.images[2]} image2={this.state.images[3]} image3={this.state.images[4]} image4={this.state.images[5]}/>
-          <Slideupstatic title="Static Slide Up" slogan="Test" image={this.state.images[6]}/>
-          <Slidedowncontainer title='Slide Down' image={this.state.images[7]} image1={this.state.images[8]} image2={this.state.images[9]} image3={this.state.images[10]} image4={this.state.images[11]}/>
-          <Sliderightstatic title="Static Slide Right" slogan="Test" image={this.state.images[12]}/>
-          <Slideleftrightcontainer title='Slide Left Right' image={this.state.images[13]} image1={this.state.images[14]} image2={this.state.images[15]} image3={this.state.images[16]} image4={this.state.images[17]}/>
-          <Slideleftstatic title="Static Slide Left" slogan="Test" image={this.state.images[18]}/>
+            {/* Second Row */}
+            <Slidedownstatic title={this.state.images[12].title} slogan={this.state.images[12].notes} image={this.state.images[12].image}/>
+            <Slideupdowncontainer title={this.state.images[13].title} image={this.state.images[13].image} image1={this.state.images[14].image} />
+            <Sliderightcontainer title={this.state.images[16].title}  image={this.state.images[16].image} image1={this.state.images[17].image} />
+            <Imagecontainer title={this.state.images[18].title} label={this.state.images[18].notes} image={this.state.images[18].image}/>
+            <Slideupcontainer title={this.state.images[20].title} image={this.state.images[20].notes} image1={this.state.images[20].image} />
+            <Slideupstatic title={this.state.images[21].title} slogan={this.state.images[21].notes} image={this.state.images[21].image}/>
 
-          <Carouselcontainer title='Carousel' slidetitle="Main Text" slidetitle1="Second Main Text" slidetitle2="Third Main Text" slogan="First Text" slogan1="Second Text" slogan2="Third Test" image={this.state.images[19]} image1={this.state.images[20]} image2={this.state.images[21]}/> {/* Second Row */}
-          <Slidedownstatic title="Static Slide Down" slogan="Test" image={this.state.images[22]}/>
-          <Slideupdowncontainer title='Slide Up Down' image={this.state.images[23]} image1={this.state.images[24]} image2={this.state.images[25]} image3={this.state.images[26]} image4={this.state.images[27]}/>
-          <Slideleftstatic title="Static Slide Left" slogan="Test" image={this.state.images[10]}/>
-          <Sliderightcontainer title='Slide Right' image={this.state.images[28]} image1={this.state.images[29]} image2={this.state.images[0]} image3={this.state.images[1]} image4={this.state.images[2]}/>
-          <Imagecontainer title="Image Container" label="container" image={this.state.images[10]}/>
-          <Slideupcontainer title='Slide Up' image={this.state.images[3]} image1={this.state.images[4]} image2={this.state.images[5]} image3={this.state.images[6]} image4={this.state.images[7]}/>
-          <Slideupstatic title="Static Slide Up" slogan="Test" image={this.state.images[8]}/> {/* Third Row */}
-          <Carouselcontainer title='Carousel' slidetitle="Main Text" slidetitle1="Second Main Text" slidetitle2="Third Main Text" slogan="First Text" slogan1="Second Text" slogan2="Third Test" image={this.state.images[9]} image1={this.state.images[10]} image2={this.state.images[11]}/>
-          <Slideupstatic title="Static Slide Up" slogan="Test" image={this.state.images[12]}/>
-          <Slideleftcontainer title='Slide Left' image={this.state.images[13]} image1={this.state.images[14]} image2={this.state.images[15]} image3={this.state.images[16]} image4={this.state.images[17]}/>
-          <Sliderightstatic title="Static Slide Right" slogan="Test" image={this.state.images[18]}/>
-          <Slidedowncontainer title='Slide Down' image={this.state.images[19]} image1={this.state.images[20]} image2={this.state.images[21]} image3={this.state.images[22]} image4={this.state.images[23]}/>
-          <Slideleftstatic title="Static Slide Left" slogan="Test" image={this.state.images[24]}/>
-          <Slideleftrightcontainer title='Slide Left Right' image={this.state.images[25]} image1={this.state.images[26]} image2={this.state.images[27]} image3={this.state.images[28]} image4={this.state.images[29]}/> {/* Forth Row */}
-          <Slidedownstatic title="Static Slide Down" slogan="Test" image={this.state.images[0]}/>
-          <Slideupcontainer title='Slide Up' image={this.state.images[1]} image1={this.state.images[2]} image2={this.state.images[3]} image3={this.state.images[4]} image4={this.state.images[5]}/>
-          <Slideleftstatic title="Static Slide Left" slogan="Test" image={this.state.images[6]}/>
-          <Slideupdowncontainer title='Slide Up Down' image={this.state.images[7]} image1={this.state.images[8]} image2={this.state.images[9]} image3={this.state.images[10]} image4={this.state.images[11]}/>
-          <Imagecontainer title="Image Container" label="container" image={this.state.images[12]}/>
-          <Sliderightcontainer title='Slide Right' image={this.state.images[13]} image1={this.state.images[14]} image2={this.state.images[15]} image3={this.state.images[16]} image4={this.state.images[17]}/>
-          <Sliderightstatic title="Static Slide Right" slogan="Test" image={this.state.images[18]}/>
+            {/* Third Row */}
+            <Carouselcontainer title='Carousel' slidetitle={this.state.images[22].title} slidetitle1={this.state.images[23].title} slogan={this.state.images[22].notes} slogan1={this.state.images[23].notes} image={this.state.images[22].image} image1={this.state.images[23].image}/>
+            <Slideupstatic title={this.state.images[24].title} slogan={this.state.images[24].notes} image={this.state.images[24].image}/>
+            <Slideleftcontainer title={this.state.images[26].title} image={this.state.images[26].image} image1={this.state.images[27].image} />
+            <Sliderightstatic title={this.state.images[28].title} slogan={this.state.images[28].notes} image={this.state.images[28].image}/>
+            <Slidedowncontainer title={this.state.images[29].title} image={this.state.images[29].image} image1={this.state.images[30].image} />
+            <Slideleftstatic title={this.state.images[31].title} slogan={this.state.images[31].notes} image={this.state.images[31].image}/>
+            <Slideleftrightcontainer title={this.state.images[32].title} image={this.state.images[32].image} image1={this.state.images[33].image} />
+
+            {/* Forth Row */}
+            <Slidedownstatic title={this.state.images[34].title} slogan={this.state.images[34].notes} image={this.state.images[34].image}/>
+            <Slideupcontainer title={this.state.images[35].title} image={this.state.images[35].image} image1={this.state.images[36].image}/>
+            <Slideleftstatic title={this.state.images[37].title} slogan={this.state.images[37].notes} image={this.state.images[37].image}/>
+            <Slideupdowncontainer title={this.state.images[38].title}  image={this.state.images[38].image} image1={this.state.images[39].image} />
+            <Imagecontainer title={this.state.images[40].title} label={this.state.images[40].notes} image={this.state.images[40].image}/>
+            <Sliderightcontainer title={this.state.images[41].title} image={this.state.images[41].image} image1={this.state.images[42].image} />
+            <Sliderightstatic title={this.state.images[43].title} slogan={this.state.images[43].notes} image={this.state.images[43].image}/>
+            </div>
+          ): <div> Loading </div>}
+
+
 
         </div>
       </div>

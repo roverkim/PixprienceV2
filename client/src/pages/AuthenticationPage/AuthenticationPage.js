@@ -111,14 +111,13 @@ export default class AuthenticationPage extends Component {
           <div class="cloud x7"></div>
           <div class="cloud x8"></div>
         </div>
-        <section className="container-inside" style={{"z-index": "1000 !important", "overflow-y": "hidden"}}>
+        <section className="container-inside" style={{"overflow-y": "hidden"}}>
           {/* Left Container */}
           <div className="left-side" style={{opacity: 0.5, "margin-top": "10px", position: "relative"}}>
             <div style={{color: "white", position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", "text-align": "center", width: "100%"}}>
-              <h2 style={{color: "white", opactiy: 1}}>Pixprience is your life. <br/> <br/> Your real life. Uncurated. Unfiltered. Unfollowed.</h2>
+              <h2 style={{color: "darkblue", opactiy: 1, "font-size": "2.5rem"}}>Pixprience <br/><span style={{"font-size" : "2rem" , color: "lightblue"}}> Your antisocial app. </span> <br/> <span style={{"font-size": "1.5rem", color : "yellow"}}>  Uncurated. Unfiltered. Unfollowed.</span></h2>
             </div>
 
-            {/*<img src="https://images.pexels.com/photos/598917/pexels-photo-598917.jpeg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb" className="left-img" title="sign up now and save 1200$"/>*/}
           </div>
           {/* Right Container */}
           <div className="right-side" style={{"margin-top": "10px"}}>

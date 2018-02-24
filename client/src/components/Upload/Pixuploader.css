@@ -1,3 +1,7 @@
+* {
+    font-family: 'Didact Gothic', sans-serif ;
+}
+
 .imagePreview{
     height: 100px;
     width: 250px;
@@ -9,4 +13,8 @@
 
 #uploadImagesModal  #PlacesAutocomplete__root input[type=text]{
   padding-top : 50px !important;
+}
+
+#uploadImagesModal {
+ font-family: 'Didact Gothic', sans-serif !important;
 }

@@ -45,66 +45,6 @@ export default class Slidedowncontainer extends Component {
               </div>
             </div>
           </div>
-          <div className="live-slide" style={{
-              top: 150,
-              display: 'block'
-            }}>
-            <div className="image-container image-format-fill" style={{
-                width: '100%',
-                height: '100%'
-              }}>
-              <div className="frame">
-                <div style={{
-                    width: '100%',
-                    height: '100%',
-                    backgroundImage: 'url(' + this.props.image2 + ')',
-                    backgroundSize: 'cover',
-                    backgroundRepeat: 'no-repeat',
-                    borderRadius: 0
-                  }}/>
-              </div>
-            </div>
-          </div>
-          <div className="live-slide" style={{
-              top: 150,
-              display: 'block'
-            }}>
-            <div className="image-container image-format-fill" style={{
-                width: '100%',
-                height: '100%'
-              }}>
-              <div className="frame">
-                <div style={{
-                    width: '100%',
-                    height: '100%',
-                    backgroundImage: 'url(' + this.props.image3 + ')',
-                    backgroundSize: 'cover',
-                    backgroundRepeat: 'no-repeat',
-                    borderRadius: 0
-                  }}/>
-              </div>
-            </div>
-          </div>
-          <div className="live-slide" style={{
-              top: '134.164px',
-              display: 'block'
-            }}>
-            <div className="image-container image-format-fill" style={{
-                width: '100%',
-                height: '100%'
-              }}>
-              <div className="frame">
-                <div style={{
-                    width: '100%',
-                    height: '100%',
-                    backgroundImage: 'url(' + this.props.image4 + ')',
-                    backgroundSize: 'cover',
-                    backgroundRepeat: 'no-repeat',
-                    borderRadius: 0
-                  }}/>
-              </div>
-            </div>
-          </div>
         </div>
         <div className="tile-label">{this.props.title}</div>
       </div>

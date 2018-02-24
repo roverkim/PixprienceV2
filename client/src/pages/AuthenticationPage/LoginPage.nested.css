@@ -1,6 +1,7 @@
 *{
   margin:0px;
   padding:0px;
+    font-family: 'Didact Gothic', sans-serif !important;
   box-sizing:border-box;
   -webkit-box-sizing:border-box;
   -moz-box-sizing:border-box;
@@ -72,7 +73,7 @@
 .sign-in,.sign-up
 {
   float:right;
-  font-size:10px;
+  font-size:0.7rem;
   font-family:'Raleway',sans-serif;
   width:60px;
   padding:5px;
@@ -116,7 +117,7 @@
 .hed
 {
   font-family:'Quicksand',sans-serif;
-  font-size: 3vh;
+  font-size: 1.3rem;
   font-weight:lighter;
   color:rgba(255, 255, 255, 0.4);
   cursor:default;
@@ -132,7 +133,7 @@ label{
 }
 .input-label
 {
-  font-size:10px;
+  font-size:0.5rem;
   color:#f1f1f1;
   font-weight:lighter;
   font-family:'Quicksand',sans-serif;
@@ -150,7 +151,7 @@ label{
 }
 .input-take::placeholder
 {
-  font-size:8px;
+  font-size:0.3rem;
   color:rgba(209, 209, 209, 0.4);
 }
 .ch{
@@ -158,7 +159,7 @@ label{
   font-family:'Quicksand',sans-serif;
 }
 .ch-label{
-  font-size: 1.5vh !important;
+  font-size: 1.5rem!important;
   color:rgba(209, 209, 209, 0.4);
   font-family:'Quicksand',sans-serif;
 }

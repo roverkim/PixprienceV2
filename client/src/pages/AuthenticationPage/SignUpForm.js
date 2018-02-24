@@ -63,7 +63,7 @@ const SignUpForm = ({onSubmit, onChange, errors, user, redirectUser}) => (
         <RaisedButton type="submit" label="Create New Account" primary />
       </div>
 
-      <CardText style={{'margin-top': '20px'}}>Already have an account? <span className="hover" href='#' onClick={()=>redirectUser(true)}>Log in</span></CardText>
+      <CardText style={{'margin-top': '20px', 'font-size': '1rem'}}>Already have an account? <span className="hover" href='#' onClick={()=>redirectUser(true)}>Log in</span></CardText>
     </form>
   </Card>
 );

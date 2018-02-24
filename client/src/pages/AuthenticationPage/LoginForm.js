@@ -48,7 +48,7 @@ const LoginForm = ({
         <RaisedButton type="submit" label="Log in" primary />
       </div>
 
-      <CardText style={{'margin-top': '20px'}}>Don't have an account? <span className="hover" href='#' onClick={()=>redirectUser(true)}>Create one.</span></CardText>
+      <CardText style={{'margin-top': '20px', 'font-size': "1rem"}}>Don't have an account? <span className="hover" href='#' onClick={()=>redirectUser(true)}>Create one.</span></CardText>
     </form>
   </Card>
 );

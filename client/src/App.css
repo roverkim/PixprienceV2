@@ -1,5 +1,6 @@
+
 * {
-  font-family: 'Didact Gothic', sans-serif;
+  font-family: 'Didact Gothic', sans-serif ;
 }
 
 .App {
@@ -19,7 +20,7 @@
 }
 
 .App-title {
-  font-size: 1.5em;
+  font-size: 1.5rem;
 }
 
 .App-intro {

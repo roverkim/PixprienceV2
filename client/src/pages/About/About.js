@@ -100,8 +100,7 @@ class About extends React.Component {
               <Row style={{"margin-top": "40px", "margin-bottom": 0}}>
                 <Col s={12} className="center-align">
                   {/* Motto and About */}
-                  <h2 style={{"font-size": "6vh"}}>About</h2>
-                  <h6 class="section-subheading">Pixperience was inspired to bring you your experiences in their purest form. <br/>Use pixprience and rediscover You.</h6>
+                  <h6 style={{"font-size": "1.5rem", "font-family": "'Didact Gothic', sans-serif", "text-shadow": "1px 1px 1px #000"}} class="section-subheading">Pixprience was inspired to bring you your experiences in their purest form. <br/> Use pixprience and rediscover You.</h6>
                 </Col>
               </Row>
               <Carousel>
