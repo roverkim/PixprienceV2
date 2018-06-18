@@ -1,4 +1,0 @@
-{
-  "dbUri": "mongodb://heroku_fq360rd6:1cbk0mc9u31mqeutipesfj0ur2@ds229458.mlab.com:29458/heroku_fq360rd6",
-  "jwtSecret": "bestexperienceever"
-}

@@ -40,7 +40,6 @@ function validateSignupForm(payload) {
     message = 'Check the form for errors.';
   }
 
-  console.log("form is valid = "+ isFormValid);
   return {
     success: isFormValid,
     message,
@@ -83,8 +82,7 @@ function validateLoginForm(payload) {
 
 router.post('/signup', (req, res, next) => {
   const validationResult = validateSignupForm(req.body);
-  console.log('here is ' + JSON.stringify(req.body));
-  console.log("Val is "+JSON.stringify(validationResult))
+  
   if (!validationResult.success) {
     return res.status(400).json({
       success: false,

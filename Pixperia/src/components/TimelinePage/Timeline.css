@@ -1,0 +1,68 @@
+#index-banner .carousel-item img{
+  max-height: 100%;
+}
+
+#index-banner .carousel .active {
+  background: none !important;
+}
+
+
+#timelinepage {
+  margin: 0px;
+  height: 100vh;
+  overflow: hidden;
+  background: -moz-radial-gradient(center, ellipse cover, #ffc578 0%, #fb9d23 100%);
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #ffc578), color-stop(100%, #fb9d23));
+  background: -webkit-radial-gradient(center, ellipse cover, #ffc578 0%, #fb9d23 100%);
+  background: -o-radial-gradient(center, ellipse cover, #ffc578 0%, #fb9d23 100%);
+  background: -ms-radial-gradient(center, ellipse cover, #ffc578 0%, #fb9d23 100%);
+  background: radial-gradient(ellipse at center, #ffc578 0%, #fb9d23 100%);
+}
+
+#timelinepage canvas {
+  height: 100vh;
+}
+
+
+#timelimepage .container .row {
+  justify-content: center;
+  align-items: center;
+}
+
+#timelinepage .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.timeline_header {
+  font-weight: bold !important;
+}
+
+#timelinepage .modal {
+  width:
+}
+
+.carousel-item {
+  text-decoration: none;
+}
+.carousel-item h6 {
+  font-size: 1rem;
+}
+
+.carousel-item p {
+  font-size: 1rem;
+}
+
+@media screen and (max-width: 640px) {
+  #imageUploadModal {
+    z-index: 9999 !important;
+    top: 0 !important;
+    max-height: 100vh;
+  }
+  #uploadBtn {
+    padding: 10px;
+  }
+}

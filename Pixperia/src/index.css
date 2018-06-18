@@ -1,0 +1,32 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  height: 100vh !important;
+  width: 100vw !important;
+}
+
+body #root {
+  height: inherit;
+}
+
+body a:hover{
+  color: white;
+}
+
+canvas {
+  height: auto;
+  width: 100%;
+  z-index: 1;
+}
+
+.gm-style-iw {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;;
+}
+
+.carousel-item {
+  text-decoration: none !important;
+}

@@ -5,18 +5,20 @@ const bcrypt = require('bcrypt');
 // define the User model schema
 const UserSchema = new mongoose.Schema({
   firstName: {
-      type: String,
-      require: true,
-      trim: true
+    type: String,
+    require: true,
+    trim: true
   },
   lastName: {
-      type: String,
-      require: true,
-      trim: true
+    type: String,
+    require: true,
+    trim: true
   },
   email: {
     type: String,
-    index: { unique: true }
+    index: {
+      unique: true
+    }
   },
   password: {
     type: String,
@@ -24,11 +26,10 @@ const UserSchema = new mongoose.Schema({
     trim: true
   },
   image: {
-      type: Schema.Types.ObjectId,
-      ref: "Image"
+    type: Schema.Types.ObjectId,
+    ref: "Image"
   }
 });
-
 
 /**
  * Compare the passed password with the value in the database. A model method.
@@ -40,7 +41,6 @@ UserSchema.methods.comparePassword = function comparePassword(password, callback
   bcrypt.compare(password, this.password, callback);
 };
 
-
 /**
  * The pre-save hook method.
  */
@@ -48,14 +48,18 @@ UserSchema.pre('save', function saveHook(next) {
   const user = this;
 
   // proceed further only if the password is modified or the user is new
-  if (!user.isModified('password')) return next();
-
+  if (!user.isModified('password'))
+    return next();
 
   return bcrypt.genSalt((saltError, salt) => {
-    if (saltError) { return next(saltError); }
+    if (saltError) {
+      return next(saltError);
+    }
 
     return bcrypt.hash(user.password, salt, (hashError, hash) => {
-      if (hashError) { return next(hashError); }
+      if (hashError) {
+        return next(hashError);
+      }
 
       // replace a password string with hash value
       user.password = hash;

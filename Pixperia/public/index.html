@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#000000">
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+  <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+
+  <!-- Bootstrap core CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
+  <!-- Custom fonts for this template -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-modal/2.2.6/css/bootstrap-modal.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-modal/2.2.6/css/bootstrap-modal-bs3patch.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-modal/2.2.6/js/bootstrap-modalmanager.min.js">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.css"> -->
+  <link rel="stylesheet" href="./vendor/materialize/materialize.css">
+  <title>React App</title>
+</head>
+
+<body>
+  <noscript>
+      You need to enable JavaScript to run this app.
+    </noscript>
+  <div id="root"></div>
+  <!-- Google Places -->
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAk3RU7B8cPu63DHHqQ2SEOlDGcf2ROyM&libraries=places"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/metro.min.js" charset="utf-8"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- Materialize -->
+  <script src="vendor/materialize/materialize.min.js"></script>
+  <!--CDN links for TweenLite, CSSPlugin, and EasePack (has to run before script) -->
+  <script src="vendor/CSSPlugin.min.js"></script>
+  <script src="vendor/EasePack.min.js"></script>
+  <script src="vendor/TweenLite.min.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.11.5/TimelineLite.min.js"></script> -->
+
+  <script>
+    $(document).ready(() => {
+      $('.slider').slider(); // Community Page Slider
+      $('#teamCarousel').carousel() //teampage carousel
+      $('#imageCarousel').carousel() //teampage carousel
+      $('.materialboxed').materialbox();
+      let myTitle = $(".navTitle");
+      TweenLite.from(myTitle, 1, {
+        autoAlpha: 0,
+        y: 50,
+        delay: 1,
+        ease: Elastic.easeOut,
+        delay: 0.8
+      });
+    });
+  </script>
+  <!-- Plugin JavaScript -->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+</body>
+
+</html>

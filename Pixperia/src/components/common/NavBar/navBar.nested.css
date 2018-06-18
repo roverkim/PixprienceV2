@@ -1,0 +1,55 @@
+@keyframes shine {
+  from {
+    -webkit-mask-position: 150%; }
+  to {
+    -webkit-mask-position: -50%; } }
+
+#NavBar {
+  background-color: transparent;
+  width: 100%;
+  overflow: hidden;
+  z-index: 9999;
+  text-align: center;
+  box-shadow: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start; }
+  #NavBar .navTitle {
+    width: auto;
+    font-size: 2rem;
+    color: grey;
+    -webkit-mask-image: linear-gradient(15deg, rgba(0, 0, 0, 0.6) 60%, #fff 80%, black 90%);
+    -webkit-mask-size: 200%;
+    animation: shine 2s linear infinite; }
+  #NavBar .fa-bars {
+    font-size: 2rem; }
+  #NavBar .fa.fa-picture-o {
+    height: 0 !important; }
+  #NavBar #uploadBtn {
+    margin: 0;
+    padding: 20px;
+    line-height: 100% !important; }
+  #NavBar #navbarNav .active {
+    color: white; }
+  #NavBar #navbarNav a {
+    font-size: 1.2rem; }
+
+.navbar-toggler {
+  position: absolute;
+  right: 10px;
+  top: 10px; }
+
+.navbar-toggler-icon {
+  color: white;
+  transition: color 1s ease; }
+  .navbar-toggler-icon:hover {
+    color: wheat; }
+
+@media (max-width: 600px) {
+  #NavBar .navbar-nav {
+    text-align: center; }
+    #NavBar .navbar-nav .nav-item {
+      border: 1px grey solid;
+      background-color: rgba(255, 255, 255, 0.2);
+      margin: 5px; } }

@@ -1,0 +1,12 @@
+#uploadImagesModal {
+  font-family: 'Roboto', sans-serif; }
+  #uploadImagesModal .imagePreview {
+    height: 100px;
+    width: 250px; }
+  #uploadImagesModal .active {
+    background: none; }
+  #uploadImagesModal #PlacesAutocomplete__root input[type=text] {
+    padding-top: 50px !important; }
+  #uploadImagesModal .row {
+    justify-content: center;
+    align-items: center; }
