@@ -46,10 +46,12 @@
   .navbar-toggler-icon:hover {
     color: wheat; }
 
-@media (max-width: 600px) {
+@media (max-width: 640px) {
   #NavBar .navbar-nav {
     text-align: center; }
     #NavBar .navbar-nav .nav-item {
       border: 1px grey solid;
       background-color: rgba(255, 255, 255, 0.2);
-      margin: 5px; } }
+      margin: 5px; }
+  #NavBar #uploadBtn {
+    padding: 10px; } }
