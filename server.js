@@ -13,7 +13,7 @@ const db = require("./models"); // Sequelize Models
 require('./models').connect(config.dbUri); // connect to the database and load models
 const authCheckMiddleware = require('./middleware/auth-check'); // Authentication Middleware
 const admin = require('firebase-admin');
-const serviceAccount = require('./pixprience-firebase-adminsdk-i21gg-95583c26c8.json');
+const serviceAccount = require('./pixprience-firebase-adminsdk-i21gg-95583c26c8.js');
 
 
 /////////////////////////////////////////////// /* Initialize Express */ //////////////////////////////////////////////////////
