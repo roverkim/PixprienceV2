@@ -25,7 +25,7 @@ const PORT = process.env.PORT || 8080;
 
 app.use(bodyParser.json({limit: '50mb'}));
 app.use(bodyParser.urlencoded({limit: '50mb', extended: true})); // Allows For JSON Interactions Between Client & Server
-app.use(express.static("./pixperia/build")); // Serve Static React Pages
+app.use(express.static("./Pixperia/build")); // Serve Static React Pages
 app.use(bodyParser.text());
 app.use(bodyParser.json({type: "application/vnd.api+json"}));
 
