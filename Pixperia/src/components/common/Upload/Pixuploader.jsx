@@ -49,10 +49,18 @@ class Pixupload extends Component {
   }
   handleSubmit(event) {
     event.preventDefault();
+    
+    if(this.state.address.length < 1){
+      this.setState({address: "Address Required!"});
+      return;
+    }
 
     this.setState({submitLoading: true});
 
     geocodeByAddress(this.state.address).then(results => getLatLng(results[0])).then(latLng => {
+      
+      localStorage.setItem("picturelastlat", latLng.lat);
+      localStorage.setItem("picturelastlong", latLng.lng );
     
       var data = { // Payload
         base64: this.state.img[0].base64,

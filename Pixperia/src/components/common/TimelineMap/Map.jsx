@@ -9,8 +9,8 @@ export default class Map extends React.Component {
     super(props);
     this.state = {
       currentLocation: {
-        lat: 41.881832,
-        lng: -87.623177
+        lat: localStorage.getItem("picturelastlat"),
+        lng: localStorage.getItem("picturelastlong")
       }
     }
   }
@@ -26,8 +26,8 @@ export default class Map extends React.Component {
       isNaN(browserLat) && isNaN(browserLong)?
         this.setState({
             currentLocation: {
-              lat: 41.881832,
-              lng: -87.623177
+              lat: localStorage.getItem("picturelastlat"),
+              lng: localStorage.getItem("picturelastlong")
             }
         }) :
         this.setState({
@@ -41,8 +41,8 @@ export default class Map extends React.Component {
     } else {
       this.setState({
         currentLocation: {
-          lat: 41.881832,
-          lng: -87.623177
+          lat: localStorage.getItem("picturelastlat"),
+          lng: localStorage.getItem("picturelastlong")
         }
       })
     }

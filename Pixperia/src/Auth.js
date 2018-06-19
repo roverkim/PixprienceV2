@@ -27,6 +27,8 @@ export default class Auth {
     localStorage.removeItem('userEmail');
     localStorage.removeItem('browserLat');
     localStorage.removeItem('browserLong');
+    localStorage.removeItem('picturelastlat');
+    localStorage.removeItem('picturelastlong');
   }
 
   /**
