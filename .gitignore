@@ -18,7 +18,6 @@
 
 # Security
 .env
-pixprience-firebase-adminsdk-i21gg-95583c26c8.json
 
 npm-debug.log*
 yarn-debug.log*
