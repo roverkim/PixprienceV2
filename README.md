@@ -1,7 +1,7 @@
 # Pixprience+
 
 Pixprience is an anti-social media web application that allows users to document their normal everyday life by uploading photos along with a note, title, and location. There are no likes, comments, followers or following other people. Pixprience is your life. your real life. Uncurated. Unfollowed. Unfiltered. You are able to visually see your memories on either a timeline or a map. You can also see the community images.
-Link: [www.pixperia.com](www.pixperia.com)
+Link: [www.pixperia.com](https://frozen-crag-27662.herokuapp.com/)
 
 Code Refactored by Ryan Kim.
 
